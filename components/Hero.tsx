@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { HeroForm } from "./HeroForm";
 import { CheckDot } from "./Illustrations";
 import { HeroLiveTicker } from "./HeroLiveTicker";
@@ -14,20 +13,21 @@ const TRUST = [
 export function Hero() {
   return (
     <section className="relative bg-[var(--color-sand)] overflow-hidden isolate">
-      {/* Caravan coast background */}
+      {/* Caravan coast background — looping muted video, falls back to PNG poster */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/hero/caravan-coast.png"
-          alt=""
-          fill
-          priority
-          quality={90}
-          sizes="(max-width: 768px) 1200px, 100vw"
-          className="object-cover object-center"
+        <video
+          src="/hero/caravan-coast.mp4"
+          poster="/hero/caravan-coast.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Mobile wash — vertical: keep text readable at top, image punches through lower */}
+        {/* Mobile wash — vertical: keep text readable at top, video punches through lower */}
         <div className="md:hidden absolute inset-0 bg-gradient-to-b from-[var(--color-sand)] from-10% via-[var(--color-sand)]/85 via-45% to-[var(--color-sand)]/30" />
-        {/* Desktop wash — horizontal: text readable on left, image punches through on right */}
+        {/* Desktop wash — horizontal: text readable on left, video punches through on right */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[var(--color-sand)] via-[var(--color-sand)]/55 to-transparent" />
         {/* Bottom feathering into the lender bar */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-sand)]/40" />
@@ -40,7 +40,7 @@ export function Hero() {
             <HeroLiveTicker />
 
 
-            <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-bold tracking-[-0.035em] leading-[0.95] text-[var(--color-navy)]">
+            <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-bold tracking-[-0.05em] leading-[0.95] text-[var(--color-navy)]">
               Hassle Free
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>

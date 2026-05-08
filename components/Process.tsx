@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 const STEPS = [
   {
     n: "01",
@@ -35,25 +33,17 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="bg-white py-12 md:py-16">
       <div className="container-page">
-        {/* Header — left aligned */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-6 max-w-6xl mx-auto mb-8 md:mb-12">
-          <div className="max-w-2xl">
-            <h2 className="font-[var(--font-display)] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.05] tracking-[-0.035em] text-[var(--color-navy)]">
-              <span className="block whitespace-nowrap">The form takes 30 seconds.</span>
-              <span className="block">We do the rest.</span>
-            </h2>
-            <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">
-              Once your details are in, here&rsquo;s what happens next — five steps to keys in hand.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5 shrink-0">
-            <a href="#apply" className="btn-coral">
-              Apply now <ArrowRight size={18} />
-            </a>
-          </div>
+        {/* Header — left aligned, single column (no duplicate CTA) */}
+        <div className="max-w-2xl mx-auto md:mx-0 max-w-6xl md:max-w-2xl mb-6 md:mb-10">
+          <h2 className="font-[var(--font-display)] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.05] tracking-[-0.05em] text-[var(--color-navy)]">
+            <span className="block whitespace-nowrap">The form takes 30 seconds.</span>
+            <span className="block">We do the rest.</span>
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">
+            Once your details are in, here&rsquo;s what happens next — five steps to keys in hand.
+          </p>
         </div>
 
         {/* Steps — editorial list with hairline dividers */}
@@ -61,7 +51,7 @@ export function Process() {
           {STEPS.map((s) => (
             <li
               key={s.n}
-              className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_minmax(220px,260px)_1fr] gap-x-5 md:gap-x-10 gap-y-2 py-6 md:py-7 border-b border-[var(--color-navy)]/10 transition"
+              className="group grid grid-cols-[auto_1fr] md:grid-cols-[auto_minmax(220px,260px)_1fr] gap-x-5 md:gap-x-10 gap-y-2 py-4 md:py-5 border-b border-[var(--color-navy)]/10 transition"
             >
               <span
                 className="font-[var(--font-display)] text-[2.25rem] md:text-[2.75rem] leading-none font-bold tracking-[-0.04em] text-[var(--color-coral)]/30 tabular-nums select-none group-hover:text-[var(--color-coral)] transition-colors"

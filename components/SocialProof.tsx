@@ -66,7 +66,7 @@ export function SocialProof() {
       <div className="container-page">
         <div className="flex items-end justify-between gap-6 mb-8 md:mb-12">
           <div className="max-w-2xl">
-            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.03em] text-[var(--color-navy)]">
+            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.045em] text-[var(--color-navy)]">
               5-star Google rated.
             </h2>
             <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">

@@ -10,7 +10,7 @@ export function FinalCTA() {
       <div className="container-page relative">
         <div className="grid lg:grid-cols-[1.2fr_minmax(380px,1fr)] gap-12 lg:gap-16 items-center">
           <div className="min-w-0">
-            <h2 className="font-[var(--font-display)] text-[clamp(1.9rem,5.5vw,5rem)] font-bold leading-[1] tracking-[-0.035em]">
+            <h2 className="font-[var(--font-display)] text-[clamp(1.9rem,5.5vw,5rem)] font-bold leading-[1] tracking-[-0.05em]">
               Your next adventure starts in <span className="coral-word">60 seconds.</span>
             </h2>
             <p className="mt-5 md:mt-6 text-base md:text-xl text-[var(--color-navy)] max-w-lg leading-relaxed">

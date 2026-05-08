@@ -22,7 +22,7 @@ export function FAQ() {
       <div className="container-page">
         <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20">
           <div>
-            <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.98] tracking-[-0.03em] text-[var(--color-navy)]">
+            <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.98] tracking-[-0.045em] text-[var(--color-navy)]">
               Got a question? <br />
               We can help.
             </h2>

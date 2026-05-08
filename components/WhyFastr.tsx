@@ -44,22 +44,16 @@ function WavesIcon({ className = "" }: { className?: string }) {
 
 const PILLARS = [
   {
-    icon: CloverIcon,
-    color: "var(--color-coral)",
-    title: "Smarter tech stack",
-    body: "AI and in-house tools fast-track approvals and cut down paperwork.",
-  },
-  {
     icon: HourglassIcon,
     color: "var(--color-yellow)",
-    title: "40+ lenders",
+    title: "40+ lenders, one form",
     body: "More lenders means more chances of approval and a sharper rate.",
   },
   {
     icon: WavesIcon,
     color: "var(--color-cyan)",
-    title: "Specialist brokers",
-    body: "No call-centre scripts. Real brokers with deep caravan-lending experience.",
+    title: "Specialist brokers, no scripts",
+    body: "Real brokers with deep caravan-lending experience — not a call centre.",
   },
 ];
 
@@ -73,7 +67,7 @@ const VAN_TYPES = [
 
 export function WhyFastr() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-14 md:py-20">
       <div className="container-page">
         <div className="grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           {/* Left — team photo with sticker */}
@@ -99,7 +93,7 @@ export function WhyFastr() {
 
           {/* Right — copy + pillars */}
           <div className="order-1 lg:order-2">
-            <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[0.96] tracking-[-0.04em] text-[var(--color-navy)]">
+            <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[0.96] tracking-[-0.05em] text-[var(--color-navy)]">
               Caravan finance is our thing.
             </h2>
             <p className="mt-5 text-lg md:text-xl text-[var(--color-navy)] max-w-xl font-medium">
@@ -141,15 +135,12 @@ export function WhyFastr() {
               <a href="#apply" className="btn-coral">
                 Apply now <ArrowRight size={18} />
               </a>
-              <a href="#calculator" className="btn-navy" style={{ background: "transparent", color: "var(--color-navy)", border: "1.5px solid var(--color-navy)" }}>
-                Calculate
-              </a>
             </div>
           </div>
         </div>
 
         {/* Van types row — quiet trust signal */}
-        <div className="mt-16 md:mt-20 max-w-5xl mx-auto">
+        <div className="mt-10 md:mt-14 max-w-5xl mx-auto">
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--color-navy-300)] mb-5">
             We fund every kind of van
           </p>

@@ -42,7 +42,7 @@ export function Gallery() {
       <div className="container-page">
         {/* Header — bold statement leads, stat as supporting */}
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[0.98] tracking-[-0.04em] text-[var(--color-navy)]">
+          <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[0.98] tracking-[-0.05em] text-[var(--color-navy)]">
             Every major Australian caravan brand. Financed.
           </h2>
           <p className="mt-5 text-base md:text-lg text-[var(--color-navy-400)] max-w-md mx-auto">

@@ -22,13 +22,13 @@ export default function Page() {
         <Hero />
         <LenderBar />
         <WhyFastr />
+        <FounderNote />
         <HappyCustomers />
         <Calculator />
         <Process />
         <Gallery />
         <SocialProof />
         <FAQ />
-        <FounderNote />
         <FinalCTA />
       </main>
       <Footer />

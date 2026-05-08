@@ -134,7 +134,7 @@ export function HappyCustomers() {
       <div className="container-page">
         <div className="flex items-end justify-between gap-6 mb-8 md:mb-10">
           <div className="max-w-2xl">
-            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.03em]">
+            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.045em]">
               <span className="block">Customers we&rsquo;ve</span>
               <span className="block">
                 <em className="not-italic font-semibold text-[var(--color-navy-400)]">actually</em> helped.

@@ -184,7 +184,7 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
             {error && <p className="mb-3 text-xs text-[var(--color-coral)]">{error}</p>}
 
             <button type="button" onClick={onNext} className="btn-coral w-full">
-              See my repayments <ArrowRight size={18} />
+              Apply now <ArrowRight size={18} />
             </button>
 
             <p className={`mt-3 flex items-center justify-center gap-1.5 text-xs ${subtleText}`}>

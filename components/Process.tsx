@@ -37,12 +37,12 @@ export function Process() {
       <div className="container-page">
         {/* Header — left aligned, single column (no duplicate CTA) */}
         <div className="max-w-2xl mx-auto md:mx-0 max-w-6xl md:max-w-2xl mb-6 md:mb-10">
-          <h2 className="font-[var(--font-display)] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.05] tracking-[-0.05em] text-[var(--color-navy)]">
-            <span className="block whitespace-nowrap">The form takes 30 seconds.</span>
-            <span className="block">We do the rest.</span>
+          <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[var(--color-navy)]">
+            How we help you get into your{" "}
+            <span className="coral-word">dream caravan.</span>
           </h2>
           <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">
-            Once your details are in, here&rsquo;s what happens next — five steps to keys in hand.
+            Five steps from first form to picking up the keys — most of them, we handle.
           </p>
         </div>
 

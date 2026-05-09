@@ -93,13 +93,11 @@ export function WhyFastr() {
 
           {/* Right — copy + pillars */}
           <div className="order-1 lg:order-2">
-            <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[0.96] tracking-[-0.05em] text-[var(--color-navy)]">
-              Caravan finance is our thing.
+            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[var(--color-navy)]">
+              Most brokers treat caravan finance like car finance.{" "}
+              <span className="coral-word">We don&rsquo;t.</span>
             </h2>
-            <p className="mt-5 text-lg md:text-xl text-[var(--color-navy)] max-w-xl font-medium">
-              Most brokers treat caravan finance like car finance. We don&rsquo;t.
-            </p>
-            <p className="mt-3 text-base md:text-[1.05rem] text-[var(--color-navy-400)] max-w-xl leading-relaxed">
+            <p className="mt-5 text-base md:text-[1.05rem] text-[var(--color-navy-400)] max-w-xl leading-relaxed">
               Caravans need different lenders, terms and structures — and that&rsquo;s
               all we do. We&rsquo;ve helped more than{" "}
               <strong className="font-semibold text-[var(--color-navy)]">3,000 Aussies</strong>{" "}

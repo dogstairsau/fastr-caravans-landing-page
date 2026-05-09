@@ -24,7 +24,7 @@ export function FAQ() {
           <div>
             <h2 className="font-[var(--font-display)] text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.98] tracking-[-0.045em] text-[var(--color-navy)]">
               Got a question? <br />
-              We can help.
+              We can <span className="coral-word">help.</span>
             </h2>
             <p className="mt-5 text-lg text-[var(--color-navy-400)] max-w-md">
               Still need a hand? Call <a href="tel:1300604183" className="font-bold text-[var(--color-navy)] underline decoration-[var(--color-coral)] decoration-2 underline-offset-4">1300 604 183</a> and chat to a specialist.

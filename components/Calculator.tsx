@@ -62,7 +62,7 @@ export function Calculator() {
   const sliderProgress = ((amount - 10000) / (250000 - 10000)) * 100;
 
   return (
-    <section id="calculator" className="bg-[var(--color-sand)] py-16 md:py-20">
+    <section id="calculator" className="bg-[var(--color-sand)] py-10 md:py-14">
       <div className="container-page">
         <div className="max-w-6xl mx-auto">
           {/* Header */}

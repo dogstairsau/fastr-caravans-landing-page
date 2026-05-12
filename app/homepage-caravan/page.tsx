@@ -1,9 +1,45 @@
 "use client";
 
-import { useState } from "react";
-import { Phone, ChevronRight, Mail, Facebook, Instagram, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Phone, ChevronRight, Mail, Facebook, Instagram, ArrowRight, X } from "lucide-react";
 
-const FORM_URL = "https://fastrfinance.com.au/form/classic";
+const VEHICLE_TYPES = [
+  {
+    key: "car",
+    label: "CAR",
+    sub: "",
+    img: "https://fastrfinance.com.au/wp-content/uploads/2021/06/car.png",
+    url: "https://fastrfinance.com.au/car-loan-form/",
+  },
+  {
+    key: "caravan",
+    label: "CARAVAN",
+    sub: "(Campervans, Trailers)",
+    img: "https://fastrfinance.com.au/wp-content/uploads/2021/06/Group-139.png",
+    url: "https://fastrfinance.com.au/caravan-loan-form/",
+  },
+  {
+    key: "boat",
+    label: "BOAT",
+    sub: "(Jetski, Outboards motors)",
+    img: "https://fastrfinance.com.au/wp-content/uploads/2021/06/ship-1.png",
+    url: "https://fastrfinance.com.au/boat-loan-form/",
+  },
+  {
+    key: "business",
+    label: "BUSINESS ASSET",
+    sub: "(Cars, Machinery, Equipment)",
+    img: "https://fastrfinance.com.au/wp-content/uploads/2021/06/pick-up-truck-1.png",
+    url: "https://fastrfinance.com.au/business-asset-loan-form/",
+  },
+  {
+    key: "other",
+    label: "Other Asset",
+    sub: "(Trailers, custom builds, motorbikes, solar panels and batteries etc)",
+    img: "https://fastrfinance.com.au/wp-content/uploads/2021/06/pick-up-truck-1.png",
+    url: "https://fastrfinance.com.au/other-asset-loan-form/",
+  },
+];
 
 const WHY_PILLARS = [
   {
@@ -111,13 +147,33 @@ export default function HomepageCaravan() {
   const [amount, setAmount] = useState("");
   const [amount2, setAmount2] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalAmount, setModalAmount] = useState("");
 
-  const submit = (val: string) => {
-    const url = new URL(FORM_URL);
-    if (val) url.searchParams.set("loan_amount", val);
-    url.searchParams.set("asset_type", "caravan");
+  const openModal = (val: string) => {
+    setModalAmount(val);
+    setModalOpen(true);
+  };
+
+  const pickVehicle = (vehicleUrl: string) => {
+    const url = new URL(vehicleUrl);
+    if (modalAmount) url.searchParams.set("loan_amount", modalAmount);
     window.location.href = url.toString();
   };
+
+  useEffect(() => {
+    if (!modalOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setModalOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [modalOpen]);
 
   return (
     <>
@@ -171,7 +227,7 @@ export default function HomepageCaravan() {
               id="apply"
               onSubmit={(e) => {
                 e.preventDefault();
-                submit(amount);
+                openModal(amount);
               }}
               className="hc-banner-form"
             >
@@ -351,7 +407,7 @@ export default function HomepageCaravan() {
                 className="hc-contentbox__form"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  submit(amount2);
+                  openModal(amount2);
                 }}
               >
                 <span className="hc-contentbox__currency" aria-hidden>$</span>
@@ -545,6 +601,44 @@ export default function HomepageCaravan() {
           </div>
         </div>
       </footer>
+
+      {/* Vehicle type modal */}
+      {modalOpen && (
+        <div
+          className="hc-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Select vehicle or asset type"
+          onClick={() => setModalOpen(false)}
+        >
+          <div className="hc-modal__panel" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="hc-modal__close"
+              onClick={() => setModalOpen(false)}
+              aria-label="Close"
+            >
+              <X size={22} />
+            </button>
+            <h2 className="hc-modal__title">What type of vehicle/asset is the loan for?</h2>
+            <div className="hc-modal__grid">
+              {VEHICLE_TYPES.map((v) => (
+                <button
+                  key={v.key}
+                  type="button"
+                  className="hc-modal__card"
+                  onClick={() => pickVehicle(v.url)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={v.img} alt="" />
+                  <span className="hc-modal__card-label">{v.label}</span>
+                  {v.sub && <span className="hc-modal__card-sub">{v.sub}</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

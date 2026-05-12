@@ -109,6 +109,42 @@ const FAQS = [
   },
 ];
 
+// Fastr brand meteor — curved rainbow trail with the F-mark at the head.
+// Matches the marks drawn into the hero illustration.
+function FastrMeteor() {
+  return (
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      {/* Curved rainbow trail */}
+      <path
+        d="M10 18 Q 100 6 175 70"
+        stroke="#FCB400"
+        strokeWidth="9"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M14 32 Q 100 22 178 80"
+        stroke="#FF7A6A"
+        strokeWidth="9"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M20 46 Q 102 38 182 90"
+        stroke="#5BC8E5"
+        strokeWidth="9"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* F-mark head */}
+      <g transform="translate(160, 60) rotate(28)">
+        <path d="M0 0 L34 0 L26 14 L40 14 L18 56 L26 30 L8 30 Z" fill="#0F0E2B" />
+        <path d="M40 0 L72 0 L64 14 L72 14 L52 56 L56 30 L42 30 Z" fill="#0F0E2B" />
+      </g>
+    </svg>
+  );
+}
+
 export default function HomepageCaravan() {
   const [amount, setAmount] = useState("");
   const [amount2, setAmount2] = useState("");
@@ -155,6 +191,18 @@ export default function HomepageCaravan() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/homepage-caravan-hero-bg.webp" alt="" />
         </div>
+        {/* Flying Fastr meteor logos */}
+        <div className="hc-meteors" aria-hidden>
+          <span className="hc-meteor hc-meteor--1">
+            <FastrMeteor />
+          </span>
+          <span className="hc-meteor hc-meteor--2">
+            <FastrMeteor />
+          </span>
+          <span className="hc-meteor hc-meteor--3">
+            <FastrMeteor />
+          </span>
+        </div>
         {/* Caravan photo, positioned right */}
         <div className="hc-banner-caravan" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -179,7 +227,7 @@ export default function HomepageCaravan() {
             >
               <input
                 type="number"
-                placeholder="How much would you like to borrow?"
+                placeholder="How much do you need?"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 aria-label="Loan amount"
@@ -222,14 +270,17 @@ export default function HomepageCaravan() {
       </section>
 
       {/* Photo content 1 — Leisure Finance Experts */}
-      <section className="hc-photo-content">
+      <section className="hc-photo-content hc-photo-content--accent">
         <div className="hc-container hc-photo-content__inner">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://fastrfinance.com.au/wp-content/uploads/2021/06/Frame-8.png"
             alt="Leisure finance"
           />
-          <div>
+          <div className="hc-photo-content__text">
+            <span className="hc-pill hc-pill--cream" aria-hidden />
+            <span className="hc-pill hc-pill--blue" aria-hidden />
+            <span className="hc-pill hc-pill--coral" aria-hidden />
             <h2 className="hc-photo-content__title">Leisure Finance Experts</h2>
             <p className="hc-photo-content__body">
               Start your adventure this weekend with our Fastr low rate loan options for caravans, motorhomes, camper
@@ -239,8 +290,8 @@ export default function HomepageCaravan() {
               <a href="#apply" className="hc-btn-red">
                 Get Started
               </a>
-              <a href="tel:1300604183" className="hc-link-phone">
-                <Phone size={16} /> 1300 604 183
+              <a href="tel:1300604183" className="hc-link-phone hc-link-phone--coral">
+                <Phone size={18} strokeWidth={2.5} /> 1300 604 183
               </a>
             </div>
           </div>

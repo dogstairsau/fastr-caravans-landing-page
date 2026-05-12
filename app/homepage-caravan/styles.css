@@ -211,6 +211,79 @@
     width: 65%;
   }
 }
+
+/* Flying Fastr meteor brand-marks soaring across the hero sky */
+.hc-meteors {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hc-meteor {
+  position: absolute;
+  display: block;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 6px 10px rgba(15, 14, 43, 0.10));
+}
+.hc-meteor svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hc-meteor--1 {
+  top: 8%;
+  left: -18%;
+  width: 220px;
+  animation: hc-meteor-fly-1 14s linear infinite;
+  animation-delay: 0s;
+}
+.hc-meteor--2 {
+  top: 26%;
+  left: -22%;
+  width: 160px;
+  opacity: 0.85;
+  animation: hc-meteor-fly-2 18s linear infinite;
+  animation-delay: 5s;
+}
+.hc-meteor--3 {
+  top: 42%;
+  left: -28%;
+  width: 120px;
+  opacity: 0.7;
+  animation: hc-meteor-fly-3 22s linear infinite;
+  animation-delay: 9s;
+}
+@media (min-width: 992px) {
+  .hc-meteor--1 { width: 260px; }
+  .hc-meteor--2 { width: 200px; }
+  .hc-meteor--3 { width: 150px; }
+}
+@keyframes hc-meteor-fly-1 {
+  0%   { transform: translate3d(0, 0, 0) rotate(-6deg); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate3d(130vw, 22vh, 0) rotate(8deg); opacity: 0; }
+}
+@keyframes hc-meteor-fly-2 {
+  0%   { transform: translate3d(0, 0, 0) rotate(-12deg); opacity: 0; }
+  10%  { opacity: 0.85; }
+  90%  { opacity: 0.85; }
+  100% { transform: translate3d(140vw, -14vh, 0) rotate(4deg); opacity: 0; }
+}
+@keyframes hc-meteor-fly-3 {
+  0%   { transform: translate3d(0, 0, 0) rotate(-2deg); opacity: 0; }
+  12%  { opacity: 0.7; }
+  88%  { opacity: 0.7; }
+  100% { transform: translate3d(150vw, 18vh, 0) rotate(14deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hc-meteor--1, .hc-meteor--2, .hc-meteor--3 { animation: none; opacity: 0.85; }
+  .hc-meteor--1 { left: 22%; top: 12%; }
+  .hc-meteor--2 { left: 52%; top: 18%; }
+  .hc-meteor--3 { left: 72%; top: 8%; }
+}
+
 .hc-banner-inner {
   position: relative;
   z-index: 1;
@@ -230,15 +303,15 @@
     gap: 60px;
   }
 }
-.hc-banner-title {
+.hc-root .hc-banner-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 1.05;
   margin-bottom: 36px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--hc-navy);
   letter-spacing: -0.02em;
 }
-.hc-banner-title .bold {
+.hc-root .hc-banner-title .bold {
   color: var(--hc-navy);
   font-weight: 800;
 }
@@ -267,24 +340,39 @@
 }
 .hc-banner-form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   gap: 14px;
   max-width: 600px;
   margin-bottom: 32px;
 }
+@media (min-width: 640px) {
+  .hc-banner-form {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 .hc-banner-form input[type="number"] {
   flex: 1;
+  width: 100%;
   min-width: 0;
   background: #fff;
   border: none;
   border-radius: 999px;
-  padding: 22px 28px;
-  font-size: 18px;
+  padding: 22px 24px;
+  font-size: 16px;
   font-family: inherit;
   color: var(--hc-navy);
   appearance: textfield;
   -moz-appearance: textfield;
+  text-overflow: ellipsis;
   box-shadow: 0 4px 12px rgba(15, 14, 43, 0.06);
+}
+@media (min-width: 640px) {
+  .hc-banner-form input[type="number"] {
+    padding: 22px 28px;
+    font-size: 18px;
+  }
 }
 .hc-banner-form input[type="number"]::placeholder {
   color: #a0a3b0;
@@ -361,32 +449,67 @@
   margin-top: 2px;
 }
 
-/* Section CTA */
+/* Section CTA — cyan card with envelope illustration + dark pill button */
 .hc-section-cta {
-  background: var(--hc-soft);
-  padding: 60px 0;
+  background: #F3F5F7;
+  padding: 70px 0;
 }
 .hc-section-cta .hc-container {
+  background: #1FA2C7;
+  border-radius: 28px;
+  padding: 24px 36px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 @media (min-width: 768px) {
   .hc-section-cta .hc-container {
-    grid-template-columns: 200px 1fr auto;
+    grid-template-columns: 220px 1fr auto;
+    padding: 28px 48px;
+    gap: 36px;
   }
 }
-.hc-section-cta img { max-height: 200px; margin: 0 auto; }
+.hc-section-cta img {
+  max-height: 170px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
 .hc-section-cta h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: 0;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .hc-section-cta h2 { text-align: left; }
+}
+.hc-section-cta h2 b { font-weight: 800; }
+.hc-section-cta .hc-btn-red {
+  background: var(--hc-navy);
+  color: #fff;
+  padding: 20px 38px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  justify-self: center;
+}
+.hc-section-cta .hc-btn-red:hover {
+  background: #1a193d;
+}
+@media (min-width: 768px) {
+  .hc-section-cta .hc-btn-red { justify-self: end; }
 }
 
 /* Photo content */
 .hc-photo-content {
-  padding: 80px 0;
-  background: #fff;
+  padding: 100px 0;
+  background: #F3F5F7;
 }
 .hc-photo-content__inner {
   display: grid;
@@ -396,7 +519,7 @@
 }
 @media (min-width: 992px) {
   .hc-photo-content__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: 80px;
   }
 }
@@ -404,13 +527,98 @@
   direction: rtl;
 }
 .hc-photo-content__inner.reverse > * { direction: ltr; }
-.hc-photo-content__inner img { border-radius: 12px; }
-.hc-photo-content__title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  margin-bottom: 20px;
+.hc-photo-content__inner > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
 }
-.hc-photo-content__body { font-size: 17px; color: var(--hc-ink); margin-bottom: 26px; }
-.hc-photo-content__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.hc-photo-content__text {
+  position: relative;
+}
+.hc-root .hc-photo-content__title {
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  line-height: 1.1;
+  margin: 0 0 24px;
+  font-weight: 800;
+  color: var(--hc-navy);
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+.hc-photo-content__body {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--hc-navy);
+  margin: 0 0 36px;
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+}
+.hc-photo-content__cta {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.hc-photo-content__cta .hc-btn-red {
+  padding: 20px 44px;
+  font-size: 18px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+/* Coral phone link variant — icon + number both in brand red */
+.hc-link-phone--coral {
+  color: var(--hc-red);
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 0;
+  gap: 12px;
+}
+.hc-link-phone--coral:hover { color: var(--hc-red-dark); }
+
+/* Decorative brand pills floating behind the heading */
+.hc-pill {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+.hc-pill--cream {
+  background: #FFE6A8;
+  width: 70px;
+  height: 22px;
+  top: -28px;
+  left: -16px;
+  transform: rotate(-30deg);
+}
+.hc-pill--blue {
+  background: #BFE3EE;
+  width: 90px;
+  height: 22px;
+  top: 14px;
+  left: -42px;
+  transform: rotate(-30deg);
+}
+.hc-pill--coral {
+  background: #FBC9CE;
+  width: 70px;
+  height: 22px;
+  top: 60px;
+  left: 18px;
+  transform: rotate(-30deg);
+}
+@media (max-width: 991px) {
+  .hc-pill--cream { top: -22px; left: -8px; }
+  .hc-pill--blue { top: 12px; left: -28px; }
+  .hc-pill--coral { top: 50px; left: 18px; }
+}
 
 /* Column item — Why Fastr */
 .hc-column-item {

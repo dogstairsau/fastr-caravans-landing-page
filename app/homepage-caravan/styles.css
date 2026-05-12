@@ -5,8 +5,8 @@
 .hc-root {
   --hc-red: #F25863;
   --hc-red-dark: #E63E4B;
-  --hc-navy: #0F0E2B;
-  --hc-ink: #0F0E2B;
+  --hc-navy: #1A0841;
+  --hc-ink: #1A0841;
   --hc-muted: #6b7280;
   --hc-bg: #ffffff;
   --hc-soft: #f6f7fb;
@@ -1027,8 +1027,14 @@
   font-size: 14px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;
+}
+.hc-contentbox__note-mark {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 /* Columnbox — vehicle types */
@@ -1156,13 +1162,17 @@
   display: flex;
   align-items: center;
   margin: 0;
+  background: #272561;
 }
 @media (min-width: 768px) {
   .hc-footer-banner { min-height: 460px; }
 }
 .hc-footer-banner__image {
   position: absolute;
-  inset: 0;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: -1px;
   z-index: 0;
 }
 .hc-footer-banner__image img {
@@ -1213,6 +1223,9 @@
   color: rgba(255,255,255,0.78);
   padding: 80px 0 40px;
   font-size: 14px;
+  margin-top: -2px;
+  position: relative;
+  z-index: 1;
 }
 .hc-footer__top {
   text-align: center;

@@ -432,7 +432,9 @@ export default function HomepageCaravan() {
                 </button>
               </form>
               <p className="hc-contentbox__note">
-                <span aria-hidden>👉</span> Viewing your options wont affect your credit score
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/fastr-mark.png" alt="" className="hc-contentbox__note-mark" aria-hidden />
+                Viewing your options wont affect your credit score
               </p>
             </div>
           </div>

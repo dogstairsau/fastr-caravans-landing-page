@@ -588,23 +588,22 @@
 /* Decorative Fastr brand mark floating behind the heading */
 .hc-photo-content__mark {
   position: absolute;
-  top: -42px;
-  left: -30px;
-  width: 130px;
-  height: 130px;
+  top: -18px;
+  left: -16px;
+  width: 78px;
+  height: 78px;
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  opacity: 0.55;
-  transform: rotate(-12deg);
+  opacity: 0.7;
+  transform: rotate(-90deg);
 }
 @media (min-width: 768px) {
   .hc-photo-content__mark {
-    width: 160px;
-    height: 160px;
-    top: -56px;
-    left: -48px;
-    opacity: 0.6;
+    width: 96px;
+    height: 96px;
+    top: -28px;
+    left: -28px;
   }
 }
 
@@ -764,13 +763,13 @@
   .hc-steps__item.reverse .hc-steps__content { grid-column: 1; text-align: right; }
 }
 .hc-steps__image { display: flex; justify-content: center; }
-.hc-steps__image img { max-height: 160px; width: auto; }
+.hc-steps__image img { max-height: 200px; width: auto; }
 @media (min-width: 768px) {
   .hc-steps__image img { max-height: 220px; }
 }
-.hc-steps__content { text-align: center; }
+.hc-steps__content { text-align: left; }
 @media (min-width: 768px) {
-  .hc-steps__content { text-align: left; }
+  .hc-steps__item.reverse .hc-steps__content { text-align: right; }
 }
 .hc-steps__dot {
   position: relative;
@@ -1140,11 +1139,15 @@
 /* Footer banner */
 .hc-footer-banner {
   position: relative;
-  min-height: 460px;
+  min-height: 360px;
   overflow: hidden;
   color: #fff;
   display: flex;
   align-items: center;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .hc-footer-banner { min-height: 460px; }
 }
 .hc-footer-banner__image {
   position: absolute;
@@ -1155,11 +1158,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .hc-footer-banner .hc-container { position: relative; z-index: 1; }
 .hc-footer-banner__content {
-  padding: 80px 0 120px;
+  padding: 48px 0 56px;
   max-width: 540px;
+}
+@media (min-width: 768px) {
+  .hc-footer-banner__content { padding: 80px 0 120px; }
 }
 .hc-footer-banner h2 {
   color: #fff;

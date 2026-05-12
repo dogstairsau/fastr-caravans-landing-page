@@ -47,8 +47,6 @@ const LENDERS = [
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/latitide.png",
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/image-7.png",
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/mac.png",
-  "https://fastrfinance.com.au/wp-content/uploads/2021/06/Liberty-1.png",
-  "https://fastrfinance.com.au/wp-content/uploads/2021/06/Money3.png",
 ];
 
 const STEPS = [
@@ -386,26 +384,34 @@ export default function HomepageCaravan() {
 
       {/* Contentbox — how much do you need */}
       <section className="hc-contentbox">
-        <div className="hc-container hc-contentbox__inner">
-          <h2>How much money do you need?</h2>
-          <form
-            className="hc-contentbox__form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              submit(amount2);
-            }}
-          >
-            <input
-              type="number"
-              placeholder="20,000"
-              value={amount2}
-              onChange={(e) => setAmount2(e.target.value)}
-              aria-label="Loan amount"
-            />
-            <button type="submit" className="hc-btn-red">
-              Get My Options
-            </button>
-          </form>
+        <div className="hc-container">
+          <div className="hc-contentbox__card">
+            <h2>How much money do you need?</h2>
+            <div className="hc-contentbox__right">
+              <form
+                className="hc-contentbox__form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  submit(amount2);
+                }}
+              >
+                <span className="hc-contentbox__currency" aria-hidden>$</span>
+                <input
+                  type="number"
+                  placeholder="20,000"
+                  value={amount2}
+                  onChange={(e) => setAmount2(e.target.value)}
+                  aria-label="Loan amount"
+                />
+                <button type="submit" className="hc-btn-red">
+                  Get My Options
+                </button>
+              </form>
+              <p className="hc-contentbox__note">
+                <span aria-hidden>👉</span> Viewing your options wont affect your credit score
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -441,7 +447,19 @@ export default function HomepageCaravan() {
               <h3>Caravans &amp; RVs</h3>
               <p>
                 Your next aussie adventure could be closer than you think. Caravan finance is more exciting than ever.
-                We have an abundance of finance solutions to make your dream road trips a reality.
+                We have an abundance of finance solutions to make your dream road trips a reality. We have industry
+                partners to help make your purchase easier too.
+              </p>
+              <span className="link-more">Learn More →</span>
+            </a>
+            <a href="https://fastrfinance.com.au/business-finance/" className="hc-columnbox__item">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://fastrfinance.com.au/wp-content/uploads/2021/06/pick-up-truck-1.png" alt="" />
+              <h3>Trucks, Excavators, Yellow goods</h3>
+              <p>
+                Assets to grow your business are of vital importance. Whether it&rsquo;s a piece of equipment or a fleet
+                of vehicles, we are here to help you grow your business with a Fastr Equipment loan. Low rates and low
+                doc products available.
               </p>
               <span className="link-more">Learn More →</span>
             </a>

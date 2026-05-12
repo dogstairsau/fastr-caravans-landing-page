@@ -103,15 +103,22 @@
   margin-left: 18px;
 }
 
-/* Header — sits on top of the mint hero background */
+/* Header — sticky: transparent over the mint hero, solid white once scrolled */
 .hc-header {
   background: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
   --hc-header-ink: #1A0841;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+}
+.hc-header--scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 4px 18px rgba(15, 14, 43, 0.08);
 }
 .hc-header-row {
   display: flex;
@@ -121,6 +128,11 @@
   max-width: 1400px;
   margin: 0 auto;
   gap: 40px;
+  transition: padding 0.25s ease;
+}
+.hc-header--scrolled .hc-header-row {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .hc-logo img { height: 42px; width: auto; }
 .hc-nav { display: none; gap: 44px; align-items: center; }

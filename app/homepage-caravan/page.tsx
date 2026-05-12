@@ -149,6 +149,7 @@ export default function HomepageCaravan() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalAmount, setModalAmount] = useState("");
+  const [headerScrolled, setHeaderScrolled] = useState(false);
 
   const openModal = (val: string) => {
     setModalAmount(val);
@@ -160,6 +161,13 @@ export default function HomepageCaravan() {
     if (modalAmount) url.searchParams.set("loan_amount", modalAmount);
     window.location.href = url.toString();
   };
+
+  useEffect(() => {
+    const onScroll = () => setHeaderScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!modalOpen) return;
@@ -177,8 +185,8 @@ export default function HomepageCaravan() {
 
   return (
     <>
-      {/* Header — transparent, sits on top of the mint hero */}
-      <header className="hc-header">
+      {/* Header — transparent over hero, solid white once scrolled */}
+      <header className={`hc-header${headerScrolled ? " hc-header--scrolled" : ""}`}>
         <div className="hc-header-row">
           <a href="https://fastrfinance.com.au/" className="hc-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}

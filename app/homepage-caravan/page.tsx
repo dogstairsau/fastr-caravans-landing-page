@@ -410,14 +410,16 @@ export default function HomepageCaravan() {
                   openModal(amount2);
                 }}
               >
-                <span className="hc-contentbox__currency" aria-hidden>$</span>
-                <input
-                  type="number"
-                  placeholder="20,000"
-                  value={amount2}
-                  onChange={(e) => setAmount2(e.target.value)}
-                  aria-label="Loan amount"
-                />
+                <label className="hc-contentbox__field">
+                  <span className="hc-contentbox__currency" aria-hidden>$</span>
+                  <input
+                    type="number"
+                    placeholder="20,000"
+                    value={amount2}
+                    onChange={(e) => setAmount2(e.target.value)}
+                    aria-label="Loan amount"
+                  />
+                </label>
                 <button type="submit" className="hc-btn-red">
                   Get My Options
                 </button>

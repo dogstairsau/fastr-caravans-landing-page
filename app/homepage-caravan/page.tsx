@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Phone, ChevronRight, Mail, Facebook, Instagram, ArrowRight, X } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, ArrowRight, X } from "lucide-react";
 
 const VEHICLE_TYPES = [
   {
@@ -532,7 +532,8 @@ export default function HomepageCaravan() {
               >
                 <h3>
                   {f.q}
-                  <ChevronRight className="hc-faq__item-icon" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/fastr-mark.png" alt="" className="hc-faq__item-icon" aria-hidden />
                 </h3>
                 <p>{f.a}</p>
               </div>

@@ -107,42 +107,6 @@ const FAQS = [
   },
 ];
 
-// Fastr brand meteor — curved rainbow trail with the F-mark at the head.
-// Matches the marks drawn into the hero illustration.
-function FastrMeteor() {
-  return (
-    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      {/* Curved rainbow trail */}
-      <path
-        d="M10 18 Q 100 6 175 70"
-        stroke="#FCB400"
-        strokeWidth="9"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M14 32 Q 100 22 178 80"
-        stroke="#FF7A6A"
-        strokeWidth="9"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M20 46 Q 102 38 182 90"
-        stroke="#5BC8E5"
-        strokeWidth="9"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* F-mark head */}
-      <g transform="translate(160, 60) rotate(28)">
-        <path d="M0 0 L34 0 L26 14 L40 14 L18 56 L26 30 L8 30 Z" fill="#0F0E2B" />
-        <path d="M40 0 L72 0 L64 14 L72 14 L52 56 L56 30 L42 30 Z" fill="#0F0E2B" />
-      </g>
-    </svg>
-  );
-}
-
 export default function HomepageCaravan() {
   const [amount, setAmount] = useState("");
   const [amount2, setAmount2] = useState("");
@@ -188,18 +152,6 @@ export default function HomepageCaravan() {
         <div className="hc-banner-bg" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/homepage-caravan-hero-bg.webp" alt="" />
-        </div>
-        {/* Flying Fastr meteor logos */}
-        <div className="hc-meteors" aria-hidden>
-          <span className="hc-meteor hc-meteor--1">
-            <FastrMeteor />
-          </span>
-          <span className="hc-meteor hc-meteor--2">
-            <FastrMeteor />
-          </span>
-          <span className="hc-meteor hc-meteor--3">
-            <FastrMeteor />
-          </span>
         </div>
         {/* Caravan photo, positioned right */}
         <div className="hc-banner-caravan" aria-hidden>
@@ -528,12 +480,14 @@ export default function HomepageCaravan() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://fastrfinance.com.au/wp-content/uploads/2025/12/Rectangle-9.webp" alt="" />
         </div>
-        <div className="hc-container hc-footer-banner__content">
-          <h2>Are you ready for your next adventure?</h2>
-          <p>Get a car you love, at a payment you can afford.</p>
-          <a href="#apply" className="hc-btn-ghost">
-            See my options
-          </a>
+        <div className="hc-container">
+          <div className="hc-footer-banner__content">
+            <h2>Are you ready for your next adventure?</h2>
+            <p>Get a car you love, at a payment you can afford.</p>
+            <a href="#apply" className="hc-btn-ghost">
+              See my options
+            </a>
+          </div>
         </div>
       </section>
 

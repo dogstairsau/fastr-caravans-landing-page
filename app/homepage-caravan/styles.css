@@ -1181,7 +1181,16 @@
   object-fit: cover;
   display: block;
 }
-.hc-footer-banner .hc-container { position: relative; z-index: 1; }
+.hc-footer-banner .hc-container {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
+  padding: 0 24px;
+}
+@media (min-width: 768px) {
+  .hc-footer-banner .hc-container { padding: 0 64px; }
+}
 .hc-footer-banner__content {
   padding: 48px 0 56px;
   max-width: 540px;

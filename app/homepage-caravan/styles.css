@@ -595,7 +595,7 @@
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  opacity: 0.85;
+  opacity: 0.5;
 }
 @media (min-width: 768px) {
   .hc-photo-content__mark {

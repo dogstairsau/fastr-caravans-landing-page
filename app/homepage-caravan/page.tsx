@@ -141,6 +141,10 @@ export default function HomepageCaravan() {
             <a href="#how-it-works">How it works</a>
             <a href="#faq">FAQ</a>
           </nav>
+          <a href="tel:1300604183" className="hc-header__phone">
+            <Phone size={18} strokeWidth={2.5} />
+            1300 604 183
+          </a>
         </div>
       </header>
 
@@ -192,6 +196,7 @@ export default function HomepageCaravan() {
               />
               <div className="badge-text">
                 <strong>Fastr&rsquo;s Google Review</strong>
+                <span className="reviews">5 stars from 251 reviews</span>
                 <span className="stars">★★★★★</span>
               </div>
             </div>

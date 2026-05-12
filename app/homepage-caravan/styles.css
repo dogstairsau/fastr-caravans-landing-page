@@ -585,42 +585,27 @@
 }
 .hc-link-phone--coral:hover { color: var(--hc-red-dark); }
 
-/* Decorative brand pills floating behind the heading */
-.hc-pill {
+/* Decorative Fastr brand mark floating behind the heading */
+.hc-photo-content__mark {
   position: absolute;
-  display: block;
-  border-radius: 999px;
+  top: -42px;
+  left: -30px;
+  width: 130px;
+  height: 130px;
   pointer-events: none;
+  user-select: none;
   z-index: 0;
+  opacity: 0.55;
+  transform: rotate(-12deg);
 }
-.hc-pill--cream {
-  background: #FFE6A8;
-  width: 70px;
-  height: 22px;
-  top: -28px;
-  left: -16px;
-  transform: rotate(-30deg);
-}
-.hc-pill--blue {
-  background: #BFE3EE;
-  width: 90px;
-  height: 22px;
-  top: 14px;
-  left: -42px;
-  transform: rotate(-30deg);
-}
-.hc-pill--coral {
-  background: #FBC9CE;
-  width: 70px;
-  height: 22px;
-  top: 60px;
-  left: 18px;
-  transform: rotate(-30deg);
-}
-@media (max-width: 991px) {
-  .hc-pill--cream { top: -22px; left: -8px; }
-  .hc-pill--blue { top: 12px; left: -28px; }
-  .hc-pill--coral { top: 50px; left: 18px; }
+@media (min-width: 768px) {
+  .hc-photo-content__mark {
+    width: 160px;
+    height: 160px;
+    top: -56px;
+    left: -48px;
+    opacity: 0.6;
+  }
 }
 
 /* Column item — Why Fastr */

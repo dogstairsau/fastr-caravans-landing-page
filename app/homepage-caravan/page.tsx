@@ -284,9 +284,8 @@ export default function HomepageCaravan() {
             alt="Leisure finance"
           />
           <div className="hc-photo-content__text">
-            <span className="hc-pill hc-pill--cream" aria-hidden />
-            <span className="hc-pill hc-pill--blue" aria-hidden />
-            <span className="hc-pill hc-pill--coral" aria-hidden />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/fastr-mark.svg" alt="" aria-hidden className="hc-photo-content__mark" />
             <h2 className="hc-photo-content__title">Leisure Finance Experts</h2>
             <p className="hc-photo-content__body">
               Start your adventure this weekend with our Fastr low rate loan options for caravans, motorhomes, camper

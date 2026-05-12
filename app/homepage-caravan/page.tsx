@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Plus } from "lucide-react";
+import { Phone, ChevronRight, Mail, Facebook, Instagram, ArrowRight } from "lucide-react";
 
 const FORM_URL = "https://fastrfinance.com.au/form/classic";
 
@@ -146,7 +146,7 @@ function FastrMeteor() {
 export default function HomepageCaravan() {
   const [amount, setAmount] = useState("");
   const [amount2, setAmount2] = useState("");
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const submit = (val: string) => {
     const url = new URL(FORM_URL);
@@ -370,14 +370,21 @@ export default function HomepageCaravan() {
 
       {/* Review rating */}
       <section className="hc-review">
-        <div className="hc-container">
-          <div className="hc-review__quote-icon">&ldquo;</div>
-          <h2>What people say about Fastr</h2>
-          <p>We are happy when our customers are too</p>
+        <div className="hc-container hc-review__inner">
+          <span className="hc-review__quote-icon" aria-hidden>&ldquo;</span>
+          <h2 className="hc-review__title">What people say about Fastr</h2>
+          <p className="hc-review__sub">We are happy when our customers are too</p>
           <div className="hc-review__badge">
-            <span className="label">Fastr&rsquo;s Google Review</span>
-            <span className="stars">★★★★★</span>
-            <span className="rating">5.0 on Google</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://fastrfinance.com.au/wp-content/uploads/2025/07/branding-google-badge_50-1.png"
+              alt="Google"
+            />
+            <div className="hc-review__badge-text">
+              <strong>Fastr&rsquo;s Google Review</strong>
+              <span className="reviews">5 stars from 251 reviews</span>
+              <span className="stars">★★★★★</span>
+            </div>
           </div>
         </div>
       </section>
@@ -493,12 +500,11 @@ export default function HomepageCaravan() {
       <section className="hc-faq" id="faq">
         <div className="hc-container hc-faq__inner">
           <div className="hc-faq__main">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://fastrfinance.com.au/wp-content/uploads/2021/06/Section-Title.png" alt="" />
+            <span className="hc-faq__watermark" aria-hidden>?</span>
             <h2>Frequently Asked Questions</h2>
             <p>Got more questions, please don&rsquo;t hesitate to contact us.</p>
           </div>
-          <div>
+          <div className="hc-faq__list">
             {FAQS.map((f, i) => (
               <div
                 key={f.q}
@@ -507,7 +513,7 @@ export default function HomepageCaravan() {
               >
                 <h3>
                   {f.q}
-                  <Plus className="hc-faq__item-icon" />
+                  <ChevronRight className="hc-faq__item-icon" />
                 </h3>
                 <p>{f.a}</p>
               </div>
@@ -525,7 +531,7 @@ export default function HomepageCaravan() {
         <div className="hc-container hc-footer-banner__content">
           <h2>Are you ready for your next adventure?</h2>
           <p>Get a car you love, at a payment you can afford.</p>
-          <a href="#apply" className="hc-btn-red">
+          <a href="#apply" className="hc-btn-ghost">
             See my options
           </a>
         </div>
@@ -534,44 +540,54 @@ export default function HomepageCaravan() {
       {/* Footer */}
       <footer className="hc-footer">
         <div className="hc-container">
+          <div className="hc-footer__top">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/fastr-logo.svg" alt="Fastr Finance" className="logo" />
+            <p>
+              Fastr Finance Pty Ltd (ABN 70 635 779 707) is an authorised credit representative (ACR #530028) of
+              Fintelligence Pty Ltd (Australian Credit Licence #511803).
+            </p>
+          </div>
           <div className="hc-footer-grid">
-            <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://fastrfinance.com.au/wp-content/uploads/2021/07/fastr.png"
-                alt="Fastr Finance"
-                className="logo"
-              />
-              <p style={{ marginBottom: 16 }}>
-                Australia&rsquo;s trusted online vehicle finance experts. Hassle-free caravan, car, boat and equipment
-                finance.
-              </p>
-              <p>
-                <a href="tel:1300604183" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                  <Phone size={14} /> 1300 604 183
-                </a>
-              </p>
+            <div className="hc-footer__newsletter">
+              <h4>Subscribe to Our Newsletter</h4>
+              <form className="hc-footer__email" onSubmit={(e) => e.preventDefault()}>
+                <input type="email" placeholder="Enter your email address" aria-label="Email address" />
+                <button type="submit" aria-label="Subscribe">
+                  <ArrowRight size={18} strokeWidth={2.5} />
+                </button>
+              </form>
+              <div className="hc-footer__social">
+                <a href="https://facebook.com/fastrfinance" aria-label="Facebook"><Facebook size={16} /></a>
+                <a href="https://instagram.com/fastrfinance" aria-label="Instagram"><Instagram size={16} /></a>
+              </div>
             </div>
             <div>
-              <h4>Lending</h4>
+              <h4>Quick Links</h4>
               <ul>
                 <li><a href="https://fastrfinance.com.au/caravan-loans/">Caravan Loans</a></li>
-                <li><a href="https://fastrfinance.com.au/car-loans/">Car Loans</a></li>
-                <li><a href="https://fastrfinance.com.au/boat-loans/">Boat Loans</a></li>
+                <li><a href="https://fastrfinance.com.au/car-loans/">Auto Loans</a></li>
               </ul>
             </div>
             <div>
-              <h4>Legal</h4>
+              <h4>More Info</h4>
               <ul>
-                <li><a href="https://fastrfinance.com.au/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="https://fastrfinance.com.au/credit-guide/">Credit Guide</a></li>
-                <li><a href="https://fastrfinance.com.au/complaints-policy/">Complaints Policy</a></li>
+                <li><a href="#faq">FAQs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal Terms</h4>
+              <ul>
+                <li><a href="https://fastrfinance.com.au/privacy-policy/">Fastr Finance Privacy Policy</a></li>
+                <li><a href="https://fastrfinance.com.au/credit-guide/">Fastr Finance Credit guide</a></li>
+                <li><a href="https://fastrfinance.com.au/fintelligence-privacy-policy/">Fintelligence Privacy Policy</a></li>
+                <li><a href="https://fastrfinance.com.au/complaints-policy/">Fintelligence Complaints Policy</a></li>
               </ul>
             </div>
           </div>
-          <div className="hc-footer__bottom">
-            Fastr Finance Pty Ltd (ABN 70 635 779 707) is an authorised credit representative (ACR #530028) of
-            Fintelligence Pty Ltd (Australian Credit Licence #511803). © Fastr Finance {new Date().getFullYear()}.
+          <div className="hc-footer__contact">
+            <a href="mailto:hello@fastrfinance.com.au"><Mail size={16} /> hello@fastrfinance.com.au</a>
+            <a href="tel:1300604183"><Phone size={16} /> 1300 604 183</a>
           </div>
         </div>
       </footer>

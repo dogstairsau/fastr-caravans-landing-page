@@ -3,14 +3,17 @@
    https://fastrfinance.com.au/homepage-caravan/ as closely as possible. */
 
 .hc-root {
-  --hc-red: #ED1C24;
-  --hc-red-dark: #C71419;
-  --hc-navy: #1A1B3A;
-  --hc-ink: #222;
+  --hc-red: #F25863;
+  --hc-red-dark: #E63E4B;
+  --hc-navy: #0F0E2B;
+  --hc-ink: #0F0E2B;
   --hc-muted: #6b7280;
   --hc-bg: #ffffff;
   --hc-soft: #f6f7fb;
   --hc-yellow: #F9BC11;
+  --hc-mint: #D5F5EC;
+  --hc-mint-deep: #B5EBDB;
+  --hc-check-green: #1FBD7B;
 
   color: var(--hc-ink);
   background: var(--hc-bg);
@@ -79,51 +82,91 @@
   margin-left: 18px;
 }
 
-/* Header */
+/* Header — sits on top of the mint hero background */
 .hc-header {
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  position: sticky;
+  background: transparent;
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
 }
 .hc-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  max-width: 1240px;
+  padding: 28px 40px;
+  max-width: 1400px;
   margin: 0 auto;
+  gap: 40px;
 }
-.hc-logo img { height: 36px; width: auto; }
-.hc-nav { display: none; gap: 28px; align-items: center; }
-.hc-nav a { color: var(--hc-navy); font-weight: 500; font-size: 15px; }
-.hc-nav a:hover { color: var(--hc-red); }
-.hc-header-cta { display: flex; align-items: center; gap: 12px; }
-.hc-header-cta .hc-tel { font-weight: 600; font-size: 14px; }
+.hc-logo img { height: 42px; width: auto; }
+.hc-nav { display: none; gap: 44px; align-items: center; }
+.hc-nav a,
+.hc-nav .hc-nav__item {
+  color: var(--hc-navy);
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+.hc-nav a:hover,
+.hc-nav .hc-nav__item:hover { opacity: 0.7; }
+.hc-nav__chevron {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-left: 4px;
+  margin-bottom: 4px;
+}
 @media (min-width: 1024px) {
   .hc-nav { display: flex; }
 }
 
-/* Banner / Hero */
+/* Banner / Hero — illustrated mint background bleeds full-bleed; text overlays the left */
 .hc-banner {
   position: relative;
-  background: #fff;
+  background: linear-gradient(180deg, #BDEDDF 0%, #D5F5EC 50%, #E8F8F2 100%);
   overflow: hidden;
+  padding-top: 120px;
+  min-height: 720px;
+}
+/* The illustration as a full-bleed background image, positioned right */
+.hc-banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hc-banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
 }
 .hc-banner-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
-  padding: 60px 20px;
-  max-width: 1240px;
+  padding: 40px 40px 80px;
+  max-width: 1400px;
   margin: 0 auto;
   align-items: center;
 }
 @media (min-width: 992px) {
   .hc-banner-inner {
-    grid-template-columns: 1.05fr 1fr;
-    padding: 90px 20px 110px;
+    /* Just text on the left — image is handled by the full-bleed bg */
+    grid-template-columns: minmax(0, 600px) 1fr;
+    padding: 40px 40px 120px;
+    gap: 60px;
   }
 }
 .hc-banner-title {
@@ -177,11 +220,27 @@
   text-align: center;
   padding: 16px;
 }
-.hc-banner-image { position: relative; }
-.hc-banner-image img {
+/* Caravan product photo — sits over the illustration on the right side */
+.hc-banner-caravan {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 992px) {
+  .hc-banner-caravan {
+    display: block;
+    right: 0;
+    bottom: 40px;
+    width: 56%;
+    max-width: 820px;
+  }
+}
+.hc-banner-caravan img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(15, 14, 43, 0.18));
 }
 
 /* Google review badge */

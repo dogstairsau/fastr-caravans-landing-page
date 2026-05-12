@@ -123,33 +123,39 @@ export default function HomepageCaravan() {
 
   return (
     <>
-      {/* Header */}
+      {/* Header — transparent, sits on top of the mint hero */}
       <header className="hc-header">
         <div className="hc-header-row">
-          <a href="#" className="hc-logo">
+          <a href="https://fastrfinance.com.au/" className="hc-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://fastrfinance.com.au/wp-content/uploads/2021/07/fastr.png" alt="Fastr Finance" />
+            <img src="/fastr-logo-dark.svg" alt="Fastr Finance" />
           </a>
           <nav className="hc-nav">
             <a href="https://fastrfinance.com.au/">Home</a>
-            <a href="https://fastrfinance.com.au/caravan-loans/">Caravan Loans</a>
-            <a href="https://fastrfinance.com.au/car-loans/">Car Loans</a>
-            <a href="https://fastrfinance.com.au/boat-loans/">Boat Loans</a>
+            <span className="hc-nav__item">
+              Loan Types <span className="hc-nav__chevron" aria-hidden />
+            </span>
+            <span className="hc-nav__item">
+              Resources <span className="hc-nav__chevron" aria-hidden />
+            </span>
+            <a href="#how-it-works">How it works</a>
             <a href="#faq">FAQ</a>
           </nav>
-          <div className="hc-header-cta">
-            <a href="tel:1300604183" className="hc-tel hc-link-phone" aria-label="Call us">
-              <Phone size={16} /> 1300 604 183
-            </a>
-            <a href="#apply" className="hc-btn-red">
-              Apply Now
-            </a>
-          </div>
         </div>
       </header>
 
       {/* Hero banner */}
       <section className="hc-banner">
+        {/* Full-bleed illustrated background */}
+        <div className="hc-banner-bg" aria-hidden>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/homepage-caravan-hero-bg.webp" alt="" />
+        </div>
+        {/* Caravan photo, positioned right */}
+        <div className="hc-banner-caravan" aria-hidden>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/homepage-caravan-photo.webp" alt="" />
+        </div>
         <div className="hc-banner-inner">
           <div>
             <h1 className="hc-banner-title">
@@ -189,14 +195,6 @@ export default function HomepageCaravan() {
                 <span className="stars">★★★★★</span>
               </div>
             </div>
-          </div>
-          <div className="hc-banner-image">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://fastrfinance.com.au/wp-content/uploads/2025/12/Frame-2-1.webp"
-              alt="Caravan"
-              loading="eager"
-            />
           </div>
         </div>
       </section>

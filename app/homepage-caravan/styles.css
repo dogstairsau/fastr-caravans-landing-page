@@ -1285,6 +1285,7 @@
   align-items: center;
   margin: 0;
   background: #272561;
+  box-shadow: 0 4px 0 #272561;
 }
 @media (min-width: 768px) {
   .hc-footer-banner { min-height: 460px; }

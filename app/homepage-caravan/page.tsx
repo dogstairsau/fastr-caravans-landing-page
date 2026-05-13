@@ -209,12 +209,26 @@ export default function HomepageCaravan() {
           </a>
           <nav className="hc-nav">
             <a href="https://fastrfinance.com.au/">Home</a>
-            <span className="hc-nav__item">
-              Loan Types <span className="hc-nav__chevron" aria-hidden />
-            </span>
-            <span className="hc-nav__item">
-              Resources <span className="hc-nav__chevron" aria-hidden />
-            </span>
+            <div className="hc-nav__item hc-nav__group">
+              <button type="button" className="hc-nav__trigger">
+                Loan Types <span className="hc-nav__chevron" aria-hidden />
+              </button>
+              <div className="hc-nav__dropdown" role="menu">
+                <a href="https://fastrfinance.com.au/car-loans/" role="menuitem">Car Loans</a>
+                <a href="https://fastrfinance.com.au/boat-loans/" role="menuitem">Boat Loans</a>
+                <a href="https://fastrfinance.com.au/caravan-loans/" role="menuitem">Caravan Loans</a>
+                <a href="https://fastrfinance.com.au/commercial-loans/" role="menuitem">Commercial Loans</a>
+              </div>
+            </div>
+            <div className="hc-nav__item hc-nav__group">
+              <button type="button" className="hc-nav__trigger">
+                Resources <span className="hc-nav__chevron" aria-hidden />
+              </button>
+              <div className="hc-nav__dropdown" role="menu">
+                <a href="https://fastrfinance.com.au/our-calculators/" role="menuitem">Our Calculators</a>
+                <a href="https://fastrfinance.com.au/blog/" role="menuitem">Blog</a>
+              </div>
+            </div>
             <a href="#how-it-works">How it works</a>
             <a href="#faq">FAQ</a>
           </nav>

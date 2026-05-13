@@ -137,8 +137,9 @@
 }
 .hc-logo img { height: 42px; width: auto; }
 .hc-nav { display: none; gap: 44px; align-items: center; }
-.hc-nav a,
-.hc-nav .hc-nav__item {
+.hc-nav > a,
+.hc-nav > .hc-nav__item,
+.hc-nav .hc-nav__trigger {
   color: var(--hc-header-ink);
   font-weight: 700;
   font-size: 18px;
@@ -147,9 +148,13 @@
   gap: 6px;
   cursor: pointer;
   transition: opacity 0.18s ease;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
 }
-.hc-nav a:hover,
-.hc-nav .hc-nav__item:hover { opacity: 0.7; }
+.hc-nav > a:hover,
+.hc-nav .hc-nav__trigger:hover { opacity: 0.7; }
 .hc-nav__chevron {
   display: inline-block;
   width: 10px;
@@ -159,7 +164,60 @@
   transform: rotate(45deg);
   margin-left: 4px;
   margin-bottom: 4px;
+  transition: transform 0.18s ease;
 }
+.hc-nav__group {
+  position: relative;
+}
+.hc-nav__group:hover .hc-nav__chevron,
+.hc-nav__group:focus-within .hc-nav__chevron {
+  transform: rotate(225deg);
+  margin-bottom: -2px;
+}
+.hc-nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 8px);
+  min-width: 240px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 8px 0;
+  box-shadow: 0 18px 40px rgba(15, 14, 43, 0.14), 0 2px 6px rgba(15, 14, 43, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 60;
+}
+.hc-nav__group:hover .hc-nav__dropdown,
+.hc-nav__group:focus-within .hc-nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+.hc-nav__dropdown::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.hc-nav__dropdown a {
+  display: block;
+  padding: 14px 24px;
+  color: var(--hc-header-ink);
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(15, 14, 43, 0.08);
+  transition: background 0.15s ease;
+}
+.hc-nav__dropdown a:last-child { border-bottom: 0; }
+.hc-nav__dropdown a:hover { background: rgba(26, 8, 65, 0.04); opacity: 1; }
 @media (min-width: 1024px) {
   .hc-nav { display: flex; }
 }

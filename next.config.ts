@@ -8,6 +8,15 @@ const config: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/", destination: "/homepage-caravan" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
 };
 
 export default config;

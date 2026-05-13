@@ -20,6 +20,7 @@
   line-height: 1.5;
   font-size: 16px;
   font-family: var(--font-poppins), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 /* Force Poppins on every element inside the replica route — the root globals.css
@@ -869,6 +870,7 @@
   position: relative;
   padding: 60px 0 100px;
   background: var(--hc-soft);
+  overflow: hidden;
 }
 .hc-contentbox::after {
   content: "";

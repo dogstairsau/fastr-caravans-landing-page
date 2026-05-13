@@ -164,6 +164,122 @@
   .hc-nav { display: flex; }
 }
 
+/* Mobile burger trigger — visible below 1024px */
+.hc-burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--hc-header-ink);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.18s ease;
+}
+.hc-burger:hover { background: rgba(26, 8, 65, 0.06); }
+@media (min-width: 1024px) {
+  .hc-burger { display: none; }
+}
+
+/* Mobile nav drawer */
+.hc-mobilenav {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+}
+.hc-mobilenav.open { pointer-events: auto; visibility: visible; }
+.hc-mobilenav__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 14, 43, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.hc-mobilenav.open .hc-mobilenav__scrim { opacity: 1; }
+.hc-mobilenav__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(88vw, 380px);
+  background: #F6F7FB;
+  padding: 24px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -12px 0 32px rgba(15, 14, 43, 0.15);
+  overflow-y: auto;
+}
+.hc-mobilenav.open .hc-mobilenav__panel { transform: translateX(0); }
+.hc-mobilenav__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hc-mobilenav__head .hc-logo img { height: 36px; }
+.hc-mobilenav__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--hc-header-ink);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.hc-mobilenav__close:hover { background: rgba(26, 8, 65, 0.06); }
+.hc-mobilenav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 12px;
+}
+.hc-mobilenav__list a,
+.hc-mobilenav__group-label {
+  color: var(--hc-header-ink);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.hc-mobilenav__group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.hc-mobilenav__group a {
+  padding-left: 18px;
+  font-size: 19px;
+  font-weight: 500;
+}
+.hc-mobilenav__phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 14px 22px;
+  background: transparent;
+  border: 1.5px solid var(--hc-header-ink);
+  color: var(--hc-header-ink);
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.hc-mobilenav__phone:hover { background: var(--hc-header-ink); color: #fff; }
+
 /* Header coral phone CTA */
 .hc-header__phone {
   display: none;

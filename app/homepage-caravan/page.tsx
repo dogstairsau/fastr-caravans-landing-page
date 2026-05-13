@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Phone, Mail, Facebook, Instagram, ArrowRight, X } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, ArrowRight, X, Menu } from "lucide-react";
 
 const VEHICLE_TYPES = [
   {
@@ -150,6 +150,7 @@ export default function HomepageCaravan() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalAmount, setModalAmount] = useState("");
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const openModal = (val: string) => {
     setModalAmount(val);
@@ -183,6 +184,20 @@ export default function HomepageCaravan() {
     };
   }, [modalOpen]);
 
+  useEffect(() => {
+    if (!mobileNavOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileNavOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [mobileNavOpen]);
+
   return (
     <>
       {/* Header — transparent over hero, solid white once scrolled */}
@@ -207,8 +222,65 @@ export default function HomepageCaravan() {
             <Phone size={18} strokeWidth={2.5} />
             1300 604 183
           </a>
+          <button
+            type="button"
+            className="hc-burger"
+            aria-label="Open menu"
+            aria-expanded={mobileNavOpen}
+            onClick={() => setMobileNavOpen(true)}
+          >
+            <Menu size={28} strokeWidth={2.5} />
+          </button>
         </div>
       </header>
+
+      {/* Mobile nav drawer */}
+      <div
+        className={`hc-mobilenav${mobileNavOpen ? " open" : ""}`}
+        aria-hidden={!mobileNavOpen}
+      >
+        <div
+          className="hc-mobilenav__scrim"
+          onClick={() => setMobileNavOpen(false)}
+        />
+        <aside className="hc-mobilenav__panel" role="dialog" aria-label="Site menu">
+          <div className="hc-mobilenav__head">
+            <a href="https://fastrfinance.com.au/" className="hc-logo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/fastr-logo-dark.svg" alt="Fastr Finance" />
+            </a>
+            <button
+              type="button"
+              className="hc-mobilenav__close"
+              aria-label="Close menu"
+              onClick={() => setMobileNavOpen(false)}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+          </div>
+          <nav className="hc-mobilenav__list">
+            <a href="https://fastrfinance.com.au/" onClick={() => setMobileNavOpen(false)}>Home</a>
+            <div className="hc-mobilenav__group">
+              <span className="hc-mobilenav__group-label">Loan Types</span>
+              <a href="https://fastrfinance.com.au/car-loans/" onClick={() => setMobileNavOpen(false)}>Car Loans</a>
+              <a href="https://fastrfinance.com.au/boat-loans/" onClick={() => setMobileNavOpen(false)}>Boat Loans</a>
+              <a href="https://fastrfinance.com.au/caravan-loans/" onClick={() => setMobileNavOpen(false)}>Caravan Loans</a>
+              <a href="https://fastrfinance.com.au/commercial-loans/" onClick={() => setMobileNavOpen(false)}>Commercial Loans</a>
+            </div>
+            <div className="hc-mobilenav__group">
+              <span className="hc-mobilenav__group-label">Resources</span>
+              <a href="https://fastrfinance.com.au/calculators/" onClick={() => setMobileNavOpen(false)}>Our Calculators</a>
+              <a href="https://fastrfinance.com.au/blog/" onClick={() => setMobileNavOpen(false)}>Blog</a>
+            </div>
+            <a href="#how-it-works" onClick={() => setMobileNavOpen(false)}>How it works</a>
+            <a href="#faq" onClick={() => setMobileNavOpen(false)}>FAQ</a>
+          </nav>
+          <a href="tel:1300604183" className="hc-mobilenav__phone">
+            <Phone size={18} strokeWidth={2.5} />
+            1300 604 183
+          </a>
+        </aside>
+      </div>
 
       {/* Hero banner */}
       <section className="hc-banner">

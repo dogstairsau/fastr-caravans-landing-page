@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0F0E2B;
+  --color-navy: #1A0841;
   --color-navy-50: #F4F4F8;
   --color-navy-100: #E2E2EB;
   --color-navy-200: #B8B7C8;
   --color-navy-300: #7E7C9A;
   --color-navy-400: #44426B;
-  --color-navy-500: #0F0E2B;
-  --color-navy-900: #07061A;
+  --color-navy-500: #1A0841;
+  --color-navy-900: #0D0420;
 
   --color-coral: #FF485E;
   --color-coral-soft: #FFE9EC;
   --color-coral-deep: #E5384C;
 
-  --color-cyan: #009ECB;
+  /* Primary CTA = lighter brand cyan (trial). */
+  --color-cyan: #38B6E0;
   --color-cyan-soft: #E0F5FB;
-  --color-cyan-deep: #007FA3;
+  --color-cyan-deep: #1F9CC8;
 
   --color-yellow: #FCB400;
   --color-yellow-soft: #FFF4D6;
@@ -28,10 +29,9 @@
   --color-lavender-deep: #C8CDF5;
   --color-sand: #FAF6EE;
 
-  /* Display = Oakes Grotesk (placeholder Space Grotesk).
-     Body = Manrope primary, Inter fallback. */
-  --font-display: var(--font-display), "Oakes Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Brand font = Poppins (matches fastrfinance.com.au and other Fastr sites). */
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-poppins), var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body);
 
   --radius-card: 1.5rem;
@@ -39,7 +39,7 @@
 
   --shadow-soft: 0 1px 2px rgb(15 14 43 / 0.04), 0 8px 24px rgb(15 14 43 / 0.06);
   --shadow-pop: 0 4px 12px rgb(15 14 43 / 0.06), 0 30px 60px -10px rgb(15 14 43 / 0.16);
-  --shadow-cta: 0 8px 24px rgb(255 72 94 / 0.32);
+  --shadow-cta: 0 8px 24px rgb(56 182 224 / 0.32);
 }
 
 @layer base {
@@ -81,7 +81,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--color-coral);
+  background: var(--color-cyan);
   color: white;
   font-weight: 600;
   border-radius: var(--radius-pill);
@@ -89,7 +89,7 @@
   font-size: 1rem;
   transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background 150ms ease;
   &:hover {
-    background: var(--color-coral-deep);
+    background: var(--color-cyan-deep);
     transform: translateY(-1px);
   }
 }
@@ -108,8 +108,8 @@
   &:hover { background: var(--color-navy-900); transform: translateY(-1px); }
 }
 
-/* Display headline word-accent: solo word in coral. NEVER gradient. */
-@utility coral-word { color: var(--color-coral); }
+/* Headline word-accent: previously coral, now matches the rest of the wording (navy trial). */
+@utility coral-word { color: inherit; }
 
 /* Photo container — clean rounded rectangle. */
 @utility photo-arch {
@@ -151,6 +151,21 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* Smooth, jitter-free Ken-Burns loop — yoyo so it never snaps back. */
+@keyframes hero-kenburns {
+  0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+}
+.hero-kenburns {
+  transform-origin: center center;
+  animation: hero-kenburns 38s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns { animation: none; transform: none; }
 }
 
 @utility marquee-track {

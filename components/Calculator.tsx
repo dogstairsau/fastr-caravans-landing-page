@@ -180,7 +180,7 @@ export function Calculator() {
                 onClick={onApply}
                 className="mt-6 md:mt-7 inline-flex items-center justify-center gap-2 bg-white text-[var(--color-navy)] font-semibold rounded-full px-6 py-3.5 text-base hover:translate-y-[-1px] transition"
               >
-                Get my real rate <ArrowRight size={18} />
+                Get My Real Options <ArrowRight size={18} />
               </button>
             </div>
           </div>

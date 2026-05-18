@@ -5,7 +5,7 @@ import { Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
-  { q: "How does a loan through Fastr Finance work?", a: "You tell us how much you want to borrow and a few quick details. Our Fastr matching technology compares 30+ lenders and finds your cheapest repayment options — usually in under a minute. A specialist then handles the application, paperwork and settlement. You stay in control the whole way." },
+  { q: "How does a loan through Fastr Finance work?", a: "You tell us how much you want to borrow and a few quick details. Our Fastr matching technology compares 40+ lenders and finds your cheapest repayment options — usually in under a minute. A specialist then handles the application, paperwork and settlement. You stay in control the whole way." },
   { q: "Will checking my options affect my credit score?", a: "No. Our initial match uses a soft credit check that does not impact your credit score. You can see your real options before deciding to apply." },
   { q: "Are your rates fixed or variable?", a: "Most caravan loans are fixed rate, which means your repayment stays the same for the life of the loan. We'll show you both fixed and variable options if available." },
   { q: "Do I need a deposit?", a: "No deposit is required for most caravan loans, subject to lender approval and the asset type. A deposit can sometimes get you a sharper rate — your specialist will walk you through your options." },

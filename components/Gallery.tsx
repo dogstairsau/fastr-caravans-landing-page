@@ -16,21 +16,14 @@ type Brand = {
 };
 
 const BRANDS: Brand[] = [
-  { name: "Jayco", slug: "jayco", useImage: true },
-  { name: "Avida", slug: "avida", useImage: true, imageExt: "webp" },
-  { name: "Lotus", slug: "lotus", useImage: true },
-  { name: "Goldstream", slug: "goldstream", useImage: true, imageExt: "png" },
-  { name: "Coromal", slug: "coromal", useImage: true, imageExt: "png" },
-  { name: "Kedron", slug: "kedron", useImage: true, imageExt: "avif" },
-  { name: "Kokoda", slug: "kokoda", useImage: true, imageExt: "webp" },
-  { name: "Concept", slug: "concept", useImage: true, imageExt: "png" },
+  { name: "Supreme", uppercase: true, letterSpacing: "0.04em" },
+  { name: "Leader", uppercase: true, letterSpacing: "0.04em" },
+  { name: "AVAN", uppercase: true, letterSpacing: "0.08em", weight: 800 },
+  { name: "Radiant", uppercase: true, letterSpacing: "0.04em" },
   { name: "Snowy River", slug: "snowy-river", useImage: true, imageExt: "png" },
-  { name: "Royal Flair", slug: "royal-flair", useImage: true, invert: true },
-  { name: "Sunland", slug: "sunland", useImage: true, imageExt: "png", invert: true },
-  { name: "Bushtracker", slug: "bushtracker", useImage: true, imageExt: "webp", invert: true },
-  { name: "Trakmaster", slug: "trakmaster", useImage: true, imageExt: "png" },
-  { name: "New Age", slug: "new-age", useImage: true },
-  { name: "Crusader", slug: "crusader", useImage: true, imageExt: "webp" },
+  { name: "Titanium", uppercase: true, letterSpacing: "0.04em" },
+  { name: "Atlas", uppercase: true, letterSpacing: "0.04em" },
+  { name: "Essential", uppercase: true, letterSpacing: "0.04em" },
 ];
 
 const SLOT = "h-12 w-[140px] md:h-14 md:w-[170px] flex items-center justify-center shrink-0";
@@ -46,9 +39,9 @@ export function Gallery() {
             Every major Australian caravan brand. <span className="coral-word">Financed.</span>
           </h2>
           <p className="mt-5 text-base md:text-lg text-[var(--color-navy-400)] max-w-md mx-auto">
-            New, used, dealer or private —{" "}
-            <strong className="font-semibold text-[var(--color-navy)]">45+ brands</strong>{" "}
-            across the country.
+            New, used, dealer or private — we finance{" "}
+            <strong className="font-semibold text-[var(--color-navy)]">100+ brands</strong>{" "}
+            across Australia.
           </p>
         </div>
 
@@ -61,7 +54,7 @@ export function Gallery() {
           </div>
 
           <p className="mt-10 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-navy-300)]">
-            + 30 more brands
+            + 90 more brands
           </p>
         </div>
       </div>

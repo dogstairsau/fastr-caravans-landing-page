@@ -131,7 +131,7 @@ export function WhyFastr() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#apply" className="btn-coral">
-                Apply now <ArrowRight size={18} />
+                Get My Options <ArrowRight size={18} />
               </a>
             </div>
           </div>

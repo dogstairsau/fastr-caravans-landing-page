@@ -31,10 +31,10 @@ export function trackInitiateCheckout(payload: LeadPayload = {}) {
   window.gtag?.("event", "begin_checkout", { value, currency, content_name });
 }
 
-export function buildFormUrl(amount: number, phone: string) {
+export function buildFormUrl(amount: number, phone?: string) {
   const url = new URL("https://fastrfinance.com.au/form/classic");
   url.searchParams.set("loan_amount", String(amount));
-  url.searchParams.set("phone", phone);
+  if (phone) url.searchParams.set("phone", phone);
   url.searchParams.set("asset_type", "caravan");
 
   if (typeof window !== "undefined") {

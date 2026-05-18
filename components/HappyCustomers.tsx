@@ -141,7 +141,7 @@ export function HappyCustomers() {
               </span>
             </h2>
             <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">
-              Real Fastr customers, real lender rates — names and locations changed for privacy, rates exact.
+              Real Fastr customers — names and locations changed for privacy.
             </p>
           </div>
 
@@ -188,12 +188,6 @@ export function HappyCustomers() {
               />
               {/* Gradient for legibility */}
               <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[var(--color-navy)]/85 via-[var(--color-navy)]/30 to-transparent" />
-
-              {/* Top-left badge: rate */}
-              <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-bold text-[var(--color-navy)] shadow-[0_4px_14px_rgba(15,14,43,0.12)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-coral)]" />
-                {s.rate}
-              </div>
 
               {/* Bottom: name + meta */}
               <div className="absolute inset-x-0 bottom-0 p-4 text-white">

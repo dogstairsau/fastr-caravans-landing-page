@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Manrope, Space_Grotesk, Caveat } from "next/font/google";
+import { Inter, Manrope, Space_Grotesk, Caveat, Poppins } from "next/font/google";
 import "./globals.css";
 
 const GA4_ID = "G-P1GMBJ4YCJ";
@@ -35,6 +35,13 @@ const script = Caveat({
   weight: ["500", "700"],
 });
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
 export const viewport: Viewport = {
   themeColor: "#0F0E2B",
   width: "device-width",
@@ -43,13 +50,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fastrfinance.com.au"),
-  title: "Caravan Loans — Compare 30+ lenders in 60 seconds | Fastr Finance",
+  title: "Caravan Loans — Compare 40+ lenders in 60 seconds | Fastr Finance",
   description:
-    "Hassle-free caravan loans. Fastr Technology instantly compares 30+ lenders to show your cheapest repayment. ★★★★★ 200+ Google reviews. No credit score impact.",
+    "Hassle-free caravan loans. Fastr Technology instantly compares 40+ lenders to show your cheapest repayment. ★★★★★ 200+ Google reviews. No credit score impact.",
   openGraph: {
     title: "Hassle Free Caravan Loans, Fastr.",
     description:
-      "Fastr Technology compares 30+ lenders to find your cheapest repayment. 5-star Google rated. No credit score impact.",
+      "Fastr Technology compares 40+ lenders to find your cheapest repayment. 5-star Google rated. No credit score impact.",
     type: "website",
     locale: "en_AU",
   },
@@ -58,7 +65,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AU" className={`${inter.variable} ${manrope.variable} ${display.variable} ${script.variable}`}>
+    <html lang="en-AU" className={`${inter.variable} ${manrope.variable} ${display.variable} ${script.variable} ${poppins.variable}`}>
       <head>
         <Script
           id="gtag-loader"

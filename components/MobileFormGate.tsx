@@ -34,7 +34,7 @@ export function MobileFormGate() {
               onClick={() => setOpen(true)}
               className="btn-coral w-full text-base py-4"
             >
-              Apply now <ArrowRight size={18} />
+              Get My Options <ArrowRight size={18} />
             </button>
 
             <p className="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-[var(--color-navy-300)]">

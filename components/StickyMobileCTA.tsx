@@ -28,7 +28,7 @@ export function StickyMobileCTA() {
           <Phone size={18} />
         </a>
         <a href="#apply" className="btn-coral flex-1 h-12 text-sm">
-          Apply now <ArrowRight size={16} />
+          Get My Options <ArrowRight size={16} />
         </a>
       </div>
     </div>

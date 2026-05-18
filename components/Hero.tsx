@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { HeroForm } from "./HeroForm";
 import { MobileFormGate } from "./MobileFormGate";
-import { BadgeCheck, MapPin, Clock } from "lucide-react";
+import { BadgeCheck, MapPin, Clock, ArrowRight, Star } from "lucide-react";
 
 const TRUST = [
   { icon: MapPin, label: "Australia's Caravan Finance Specialists" },
@@ -12,87 +12,239 @@ const TRUST = [
 ];
 
 /**
- * Hero background options — switch by visiting /?hero=A | B | C
- * (or edit DEFAULT_HERO_VARIANT below to lock one in).
- *
- *  A — new client-supplied looping video (no glitch at the loop point)
- *  B — caravan at scenic campsite (mountain/coast vibe, Unsplash)
- *  C — RV on an open highway with mountains (Unsplash)
+ * Three full hero design directions — switch by visiting:
+ *   /concept       → A (default)
+ *   /concept?hero=B → cinematic full-bleed overlay
+ *   /concept?hero=C → mint illustrated brand-forward
  */
-type HeroVariant = {
-  kind: "video" | "image";
-  src: string;
-  poster?: string;
-};
+type HeroVariantKey = "A" | "B" | "C";
+const DEFAULT_HERO_VARIANT: HeroVariantKey = "A";
 
-const HERO_VARIANTS: Record<"A" | "B" | "C", HeroVariant> = {
-  A: { kind: "video", src: "/hero/caravan-coast-v2.mp4", poster: "/hero/caravan-coast.png" },
-  B: {
-    kind: "image",
-    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=2200&q=85&auto=format&fit=crop",
-  },
-  C: {
-    kind: "image",
-    src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=2200&q=85&auto=format&fit=crop",
-  },
-};
-
-const DEFAULT_HERO_VARIANT: keyof typeof HERO_VARIANTS = "A";
-
-function useHeroVariant(): keyof typeof HERO_VARIANTS {
-  const [variant, setVariant] = useState<keyof typeof HERO_VARIANTS>(DEFAULT_HERO_VARIANT);
+function useHeroVariant(): HeroVariantKey {
+  const [v, setV] = useState<HeroVariantKey>(DEFAULT_HERO_VARIANT);
   useEffect(() => {
-    const param = new URLSearchParams(window.location.search).get("hero")?.toUpperCase();
-    if (param && param in HERO_VARIANTS) {
-      setVariant(param as keyof typeof HERO_VARIANTS);
-    }
+    const p = new URLSearchParams(window.location.search).get("hero")?.toUpperCase();
+    if (p === "A" || p === "B" || p === "C") setV(p);
   }, []);
-  return variant;
+  return v;
 }
 
 export function Hero() {
   const variant = useHeroVariant();
-  const config = HERO_VARIANTS[variant];
+  if (variant === "B") return <HeroVariantB />;
+  if (variant === "C") return <HeroVariantC />;
+  return <HeroVariantA />;
+}
 
+/* ------------------------------------------------------------------ */
+/* VARIANT A — Current. Video bg + sand fade, copy left, form right.   */
+/* ------------------------------------------------------------------ */
+function HeroVariantA() {
   return (
     <section className="relative bg-[var(--color-sand)] overflow-hidden isolate">
-      {/* Background — looping video or still image with Ken-Burns zoom */}
       <div className="absolute inset-0 -z-10">
-        {config.kind === "video" ? (
-          <video
-            key={config.src}
-            src={config.src}
-            poster={config.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={config.src}
-            src={config.src}
-            alt=""
-            aria-hidden
-            className="hero-kenburns absolute inset-0 w-full h-full object-cover object-center"
-          />
-        )}
-        {/* Mobile wash — vertical */}
+        <video
+          src="/hero/caravan-coast-v2.mp4"
+          poster="/hero/caravan-coast.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
         <div className="md:hidden absolute inset-0 bg-gradient-to-b from-[var(--color-sand)] from-10% via-[var(--color-sand)]/85 via-45% to-[var(--color-sand)]/30" />
-        {/* Desktop wash — horizontal */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[var(--color-sand)] via-[var(--color-sand)]/55 to-transparent" />
-        {/* Bottom feathering into the lender bar */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-sand)]/40" />
       </div>
 
       <div className="container-page relative pt-8 md:pt-20 pb-10 md:pb-24">
         <div className="grid lg:grid-cols-[1.15fr_minmax(380px,1fr)] gap-10 lg:gap-14 items-start">
-          {/* Left — copy */}
           <div className="relative min-w-0">
             <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-bold tracking-[-0.05em] leading-[0.95] text-[var(--color-navy)]">
+              Hassle Free
+              <br />
+              <span className="whitespace-nowrap">Caravan Loans,</span>
+              <br />
+              <span className="font-bold">Fastr<span className="coral-word">.</span></span>
+            </h1>
+            <p className="mt-5 md:mt-7 max-w-md text-base md:text-lg leading-snug text-[var(--color-navy)] text-balance">
+              Instantly compares 40+ lenders to show your cheapest repayment.
+            </p>
+            <ul className="mt-5 md:mt-7 space-y-2.5">
+              {TRUST.map((t) => {
+                const Icon = t.icon;
+                return (
+                  <li
+                    key={t.label}
+                    className="flex items-center gap-3 text-sm font-semibold text-[var(--color-navy)]"
+                  >
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--color-navy)] text-white shrink-0">
+                      <Icon size={14} strokeWidth={2.25} />
+                    </span>
+                    {t.label}
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="mt-6 md:mt-8">
+              <MobileFormGate />
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <HeroForm variant="light" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* VARIANT B — Cinematic. Full-bleed video, centered overlay copy,      */
+/* form card sits in a clean section directly beneath the hero.        */
+/* ------------------------------------------------------------------ */
+function HeroVariantB() {
+  return (
+    <>
+      <section className="relative isolate overflow-hidden h-[78vh] min-h-[600px] md:h-[88vh] md:min-h-[720px] flex items-center justify-center text-white">
+        {/* Full-bleed video — no sand fade so the image owns the space */}
+        <video
+          src="/hero/caravan-coast-v2.mp4"
+          poster="/hero/caravan-coast.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 -z-10 w-full h-full object-cover object-center"
+        />
+        {/* Cinematic gradient overlay — keeps text legible without washing the image */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--color-navy)]/55 via-[var(--color-navy)]/35 to-[var(--color-navy)]/75" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-navy)]/40 via-transparent to-transparent" />
+
+        <div className="container-page relative text-center max-w-3xl">
+          {/* Eyebrow */}
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em]">
+            <span className="inline-flex items-center gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={11} fill="#FCB400" stroke="#FCB400" />
+              ))}
+            </span>
+            <span className="opacity-90">200+ five-star Google reviews</span>
+          </p>
+
+          <h1 className="mt-6 font-[var(--font-display)] text-[clamp(2.9rem,7vw,6rem)] font-bold tracking-[-0.045em] leading-[0.95]">
+            Hassle Free
+            <br />
+            <span className="whitespace-nowrap">Caravan Loans,</span>
+            <br />
+            <span>Fastr<span className="coral-word">.</span></span>
+          </h1>
+
+          <p className="mt-6 md:mt-7 mx-auto max-w-xl text-lg md:text-xl leading-snug text-white/90 text-balance">
+            Instantly compares 40+ lenders to show your cheapest repayment. No credit score impact.
+          </p>
+
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a href="#hero-form" className="btn-coral text-base md:text-lg py-4 px-7">
+              Get My Options <ArrowRight size={18} />
+            </a>
+            <a
+              href="tel:1300604183"
+              className="inline-flex items-center gap-2 px-5 py-3 text-sm md:text-base font-semibold text-white/90 hover:text-white transition"
+            >
+              or call 1300 604 183 →
+            </a>
+          </div>
+
+          {/* Trust strip — minimal */}
+          <ul className="mt-10 md:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12.5px] md:text-sm font-semibold text-white/90">
+            {TRUST.map((t) => {
+              const Icon = t.icon;
+              return (
+                <li key={t.label} className="inline-flex items-center gap-2">
+                  <span className="grid h-6 w-6 place-items-center rounded-full bg-white/15 backdrop-blur-md text-white">
+                    <Icon size={12} strokeWidth={2.5} />
+                  </span>
+                  {t.label}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Subtle scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-[10px] font-bold uppercase tracking-[0.22em] flex flex-col items-center gap-2">
+          <span>Start in 60 seconds</span>
+          <span className="h-8 w-px bg-white/40" />
+        </div>
+      </section>
+
+      {/* Form lives in its own clean section directly below the hero */}
+      <section id="hero-form" className="relative bg-white py-16 md:py-24">
+        <div className="container-page">
+          <div className="max-w-xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="font-[var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold leading-tight tracking-[-0.035em] text-[var(--color-navy)]">
+                Start in 60 seconds.
+              </h2>
+              <p className="mt-3 text-base md:text-lg text-[var(--color-navy-400)]">
+                Won&apos;t affect your credit score.
+              </p>
+            </div>
+            <HeroForm id="apply" variant="light" />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* VARIANT C — Mint Illustrated. Solid mint gradient, decorative brand */
+/* mark + dot pattern. No photo. Same skeleton (text-left, form-right). */
+/* ------------------------------------------------------------------ */
+function HeroVariantC() {
+  return (
+    <section className="relative overflow-hidden isolate bg-gradient-to-br from-[var(--color-mint)] via-[var(--color-mint)] to-[var(--color-mint-deep)]">
+      {/* Decorative brand mark watermark (right) — large, low opacity */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/fastr-mark.png"
+        alt=""
+        aria-hidden
+        className="pointer-events-none select-none absolute right-[-8%] top-[6%] w-[42vw] max-w-[640px] opacity-15 rotate-[8deg] hidden md:block"
+      />
+      {/* Decorative dot pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(15,14,43,0.07) 1px, transparent 1.2px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
+        }}
+      />
+      {/* Soft floating colour orbs to add depth */}
+      <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[var(--color-cyan)]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 right-1/4 h-[460px] w-[460px] rounded-full bg-[var(--color-yellow)]/20 blur-3xl" />
+
+      <div className="container-page relative pt-10 md:pt-24 pb-12 md:pb-28">
+        <div className="grid lg:grid-cols-[1.15fr_minmax(380px,1fr)] gap-10 lg:gap-14 items-start">
+          <div className="relative min-w-0">
+            {/* Eyebrow */}
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur-md border border-[var(--color-navy)]/8 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-navy)]">
+              <span className="inline-flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={11} fill="#FCB400" stroke="#FCB400" />
+                ))}
+              </span>
+              <span>200+ Google reviews</span>
+            </p>
+
+            <h1 className="mt-5 font-[var(--font-display)] text-[clamp(2.7rem,6.2vw,5.5rem)] font-bold tracking-[-0.05em] leading-[0.95] text-[var(--color-navy)]">
               Hassle Free
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>
@@ -104,7 +256,6 @@ export function Hero() {
               Instantly compares 40+ lenders to show your cheapest repayment.
             </p>
 
-            {/* Trust signals — vertical list */}
             <ul className="mt-5 md:mt-7 space-y-2.5">
               {TRUST.map((t) => {
                 const Icon = t.icon;
@@ -122,13 +273,10 @@ export function Hero() {
               })}
             </ul>
 
-            {/* Mobile-only: gated form CTA — sits after the trust row */}
             <div className="mt-6 md:mt-8">
               <MobileFormGate />
             </div>
           </div>
-
-          {/* Right — form (desktop) */}
           <div className="hidden lg:block">
             <HeroForm variant="light" />
           </div>

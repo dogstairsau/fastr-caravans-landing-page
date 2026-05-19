@@ -20,7 +20,7 @@ type Brand = {
 const BRANDS: Brand[] = [
   { name: "Supreme", slug: "supreme", useImage: true },
   { name: "Leader", slug: "leader", useImage: true },
-  { name: "AVAN", slug: "avan", useImage: true, imageExt: "png", keepColor: true },
+  { name: "AVAN", slug: "avan", useImage: true, imageExt: "png" },
   { name: "Radiant", slug: "radiant", useImage: true, imageExt: "png" },
   { name: "Snowy River", slug: "snowy-river", useImage: true, imageExt: "png" },
   { name: "Titanium", slug: "titanium", useImage: true },

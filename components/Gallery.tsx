@@ -11,6 +11,8 @@ type Brand = {
   imageExt?: "svg" | "png" | "webp" | "jpg" | "avif";
   // For logos designed on dark backgrounds (white/gold artwork): invert so they read on light.
   invert?: boolean;
+  // Render the logo in its original colours (skip the greyscale wall treatment).
+  keepColor?: boolean;
   // Icon-only logos: render the mark + the brand name beside it.
   iconWithText?: boolean;
 };
@@ -18,10 +20,10 @@ type Brand = {
 const BRANDS: Brand[] = [
   { name: "Supreme", slug: "supreme", useImage: true },
   { name: "Leader", slug: "leader", useImage: true },
-  { name: "AVAN", slug: "avan", useImage: true, imageExt: "png" },
+  { name: "AVAN", slug: "avan", useImage: true, imageExt: "png", keepColor: true },
   { name: "Radiant", slug: "radiant", useImage: true, imageExt: "png" },
   { name: "Snowy River", slug: "snowy-river", useImage: true, imageExt: "png" },
-  { name: "Titanium", slug: "titanium", useImage: true, invert: true },
+  { name: "Titanium", slug: "titanium", useImage: true },
   { name: "Atlas", slug: "atlas", useImage: true, imageExt: "png", invert: true },
   { name: "Essential", slug: "essential", useImage: true, imageExt: "webp" },
 ];
@@ -65,11 +67,14 @@ export function Gallery() {
 function BrandMark({ brand }: { brand: Brand }) {
   if (brand.useImage && brand.slug) {
     const ext = brand.imageExt ?? "svg";
-    // Greyscale all logos for a unified "trusted by" wall feel.
-    // Invert white-on-transparent logos so they read dark on the cream bg.
-    const filter = brand.invert
-      ? "grayscale(1) invert(1) brightness(0.4)"
-      : "grayscale(1)";
+    // Greyscale all logos for a unified "trusted by" wall feel,
+    // unless keepColor is set. Invert white-on-transparent logos
+    // so they read dark on the cream background.
+    const filter = brand.keepColor
+      ? "none"
+      : brand.invert
+        ? "grayscale(1) invert(1) brightness(0.4)"
+        : "grayscale(1)";
 
     if (brand.iconWithText) {
       return (

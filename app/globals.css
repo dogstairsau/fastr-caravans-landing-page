@@ -170,8 +170,8 @@
 
 /* Hero "Start in 60 seconds" scroll cue — gentle float + chevron bounce. */
 @keyframes hero-scroll-cue-float {
-  0%, 100% { transform: translate(-50%, 0); }
-  50%      { transform: translate(-50%, -6px); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
 }
 @keyframes hero-scroll-cue-bounce {
   0%, 100% { transform: translateY(0); opacity: 0.85; }

@@ -158,27 +158,47 @@ function HeroVariantB() {
             </a>
           </div>
 
-          {/* Trust strip — minimal */}
-          <ul className="mt-10 md:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12.5px] md:text-sm font-semibold text-white/90">
+          {/* Trust strip — always three across */}
+          <ul className="mt-10 md:mt-14 grid grid-cols-3 items-center justify-items-center gap-x-4 sm:gap-x-6 md:gap-x-10 text-[11.5px] sm:text-[12.5px] md:text-sm font-semibold text-white/90 max-w-4xl mx-auto">
             {TRUST.map((t) => {
               const Icon = t.icon;
               return (
-                <li key={t.label} className="inline-flex items-center gap-2">
-                  <span className="grid h-6 w-6 place-items-center rounded-full bg-white/15 backdrop-blur-md text-white">
+                <li key={t.label} className="inline-flex items-center gap-2 text-center sm:text-left">
+                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/15 backdrop-blur-md text-white">
                     <Icon size={12} strokeWidth={2.5} />
                   </span>
-                  {t.label}
+                  <span className="leading-tight">{t.label}</span>
                 </li>
               );
             })}
           </ul>
         </div>
 
-        {/* Subtle scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-[10px] font-bold uppercase tracking-[0.22em] flex flex-col items-center gap-2">
-          <span>Start in 60 seconds</span>
-          <span className="h-8 w-px bg-white/40" />
-        </div>
+        {/* Animated scroll cue — clickable, bigger, pulsing */}
+        <a
+          href="#hero-form"
+          aria-label="Scroll to form"
+          className="hero-scroll-cue absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 inline-flex flex-col items-center gap-3 text-white/90 hover:text-white transition group"
+        >
+          <span className="text-xs md:text-sm font-bold uppercase tracking-[0.24em]">
+            Start in 60 seconds
+          </span>
+          <span className="hero-scroll-cue__chevron grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full border-2 border-white/60 group-hover:border-white transition">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </span>
+        </a>
       </section>
 
       {/* Form lives in its own clean section directly below the hero */}

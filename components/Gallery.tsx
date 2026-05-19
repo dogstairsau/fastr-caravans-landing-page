@@ -16,14 +16,14 @@ type Brand = {
 };
 
 const BRANDS: Brand[] = [
-  { name: "Supreme", uppercase: true, letterSpacing: "0.04em" },
-  { name: "Leader", uppercase: true, letterSpacing: "0.04em" },
-  { name: "AVAN", uppercase: true, letterSpacing: "0.08em", weight: 800 },
-  { name: "Radiant", uppercase: true, letterSpacing: "0.04em" },
+  { name: "Supreme", slug: "supreme", useImage: true },
+  { name: "Leader", slug: "leader", useImage: true },
+  { name: "AVAN", slug: "avan", useImage: true, imageExt: "png" },
+  { name: "Radiant", slug: "radiant", useImage: true, imageExt: "png" },
   { name: "Snowy River", slug: "snowy-river", useImage: true, imageExt: "png" },
-  { name: "Titanium", uppercase: true, letterSpacing: "0.04em" },
-  { name: "Atlas", uppercase: true, letterSpacing: "0.04em" },
-  { name: "Essential", uppercase: true, letterSpacing: "0.04em" },
+  { name: "Titanium", slug: "titanium", useImage: true, invert: true },
+  { name: "Atlas", slug: "atlas", useImage: true, imageExt: "png", invert: true },
+  { name: "Essential", slug: "essential", useImage: true, imageExt: "webp" },
 ];
 
 const SLOT = "h-12 w-[140px] md:h-14 md:w-[170px] flex items-center justify-center shrink-0";

@@ -214,10 +214,10 @@ export default function HomepageCaravan() {
                 Loan Types <span className="hc-nav__chevron" aria-hidden />
               </button>
               <div className="hc-nav__dropdown" role="menu">
-                <a href="https://fastrfinance.com.au/car-loans/" role="menuitem">Car Loans</a>
-                <a href="https://fastrfinance.com.au/boat-loans/" role="menuitem">Boat Loans</a>
-                <a href="https://fastrfinance.com.au/caravan-loans/" role="menuitem">Caravan Loans</a>
-                <a href="https://fastrfinance.com.au/commercial-loans/" role="menuitem">Commercial Loans</a>
+                <a href="https://fastrfinance.com.au/homepage-car/" role="menuitem">Car Loans</a>
+                <a href="https://fastrfinance.com.au/homepage-boat/" role="menuitem">Boat Loans</a>
+                <a href="/homepage-caravan" role="menuitem">Caravan Loans</a>
+                <a href="https://fastrfinance.com.au/homepage-truck/" role="menuitem">Commercial Loans</a>
               </div>
             </div>
             <div className="hc-nav__item hc-nav__group">
@@ -276,10 +276,10 @@ export default function HomepageCaravan() {
             <a href="https://fastrfinance.com.au/" onClick={() => setMobileNavOpen(false)}>Home</a>
             <div className="hc-mobilenav__group">
               <span className="hc-mobilenav__group-label">Loan Types</span>
-              <a href="https://fastrfinance.com.au/car-loans/" onClick={() => setMobileNavOpen(false)}>Car Loans</a>
-              <a href="https://fastrfinance.com.au/boat-loans/" onClick={() => setMobileNavOpen(false)}>Boat Loans</a>
-              <a href="https://fastrfinance.com.au/caravan-loans/" onClick={() => setMobileNavOpen(false)}>Caravan Loans</a>
-              <a href="https://fastrfinance.com.au/commercial-loans/" onClick={() => setMobileNavOpen(false)}>Commercial Loans</a>
+              <a href="https://fastrfinance.com.au/homepage-car/" onClick={() => setMobileNavOpen(false)}>Car Loans</a>
+              <a href="https://fastrfinance.com.au/homepage-boat/" onClick={() => setMobileNavOpen(false)}>Boat Loans</a>
+              <a href="/homepage-caravan" onClick={() => setMobileNavOpen(false)}>Caravan Loans</a>
+              <a href="https://fastrfinance.com.au/homepage-truck/" onClick={() => setMobileNavOpen(false)}>Commercial Loans</a>
             </div>
             <div className="hc-mobilenav__group">
               <span className="hc-mobilenav__group-label">Resources</span>
@@ -673,8 +673,10 @@ export default function HomepageCaravan() {
             <div>
               <h4>Quick Links</h4>
               <ul>
-                <li><a href="https://fastrfinance.com.au/caravan-loans/">Caravan Loans</a></li>
-                <li><a href="https://fastrfinance.com.au/car-loans/">Auto Loans</a></li>
+                <li><a href="/homepage-caravan">Caravan Loans</a></li>
+                <li><a href="https://fastrfinance.com.au/homepage-car/">Car Loans</a></li>
+                <li><a href="https://fastrfinance.com.au/homepage-boat/">Boat Loans</a></li>
+                <li><a href="https://fastrfinance.com.au/homepage-truck/">Commercial Loans</a></li>
               </ul>
             </div>
             <div>
@@ -686,10 +688,25 @@ export default function HomepageCaravan() {
             <div>
               <h4>Legal Terms</h4>
               <ul>
-                <li><a href="https://fastrfinance.com.au/privacy-policy/">Fastr Finance Privacy Policy</a></li>
-                <li><a href="https://fastrfinance.com.au/credit-guide/">Fastr Finance Credit guide</a></li>
-                <li><a href="https://fastrfinance.com.au/fintelligence-privacy-policy/">Fintelligence Privacy Policy</a></li>
-                <li><a href="https://fastrfinance.com.au/complaints-policy/">Fintelligence Complaints Policy</a></li>
+                <li>
+                  <a
+                    href="https://fastrfinance.com.au/wp-content/uploads/2021/09/Credit-Guide-Quote-emplate-fintelligence_ACR-version-FASTR-Finance.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Credit Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="https://fintelligence.com.au/legal/complaints/" target="_blank" rel="noopener noreferrer">
+                    Compliance
+                  </a>
+                </li>
+                <li>
+                  <a href="https://fintelligence.com.au/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
+                    Privacy Policy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

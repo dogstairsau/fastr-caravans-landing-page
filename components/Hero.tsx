@@ -147,12 +147,25 @@ function HeroVariantB() {
           </p>
 
           <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a href="#hero-form" className="btn-coral text-base md:text-lg py-4 px-7">
+            {/* Mobile: send straight to the external form. Desktop: anchor to the form section below. */}
+            <a
+              href="https://fastrfinance.com.au/form/classic?asset_type=caravan"
+              className="btn-coral text-base md:text-lg py-4 px-7 lg:hidden"
+            >
+              Get My Options <ArrowRight size={18} />
+            </a>
+            <a href="#hero-form" className="btn-coral text-base md:text-lg py-4 px-7 hidden lg:inline-flex">
               Get My Options <ArrowRight size={18} />
             </a>
             <a
+              href="#calculator"
+              className="inline-flex items-center gap-2 px-5 py-3 text-sm md:text-base font-semibold text-white/90 hover:text-white transition lg:hidden"
+            >
+              Use our calculator →
+            </a>
+            <a
               href="tel:1300604183"
-              className="inline-flex items-center gap-2 px-5 py-3 text-sm md:text-base font-semibold text-white/90 hover:text-white transition"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-3 text-sm md:text-base font-semibold text-white/90 hover:text-white transition"
             >
               or call 1300 604 183 →
             </a>
@@ -173,11 +186,11 @@ function HeroVariantB() {
             })}
           </ul>
 
-          {/* Animated scroll cue — sits directly below the three trust pillars */}
+          {/* Animated scroll cue — sits directly below the three trust pillars. Desktop only (form lives below on desktop). */}
           <a
             href="#hero-form"
             aria-label="Scroll to form"
-            className="hero-scroll-cue mt-8 md:mt-10 inline-flex flex-col items-center gap-3 text-white/90 hover:text-white transition group"
+            className="hero-scroll-cue mt-8 md:mt-10 hidden lg:inline-flex flex-col items-center gap-3 text-white/90 hover:text-white transition group"
           >
             <span className="text-xs md:text-sm font-bold uppercase tracking-[0.24em]">
               Start in 60 seconds
@@ -201,8 +214,9 @@ function HeroVariantB() {
         </div>
       </section>
 
-      {/* Form lives in its own clean section directly below the hero */}
-      <section id="hero-form" className="relative bg-white py-16 md:py-24">
+      {/* Form lives in its own clean section directly below the hero — desktop only.
+          On mobile, the hero CTA goes straight to the external form. */}
+      <section id="hero-form" className="hidden lg:block relative bg-white py-16 md:py-24">
         <div className="container-page">
           <div className="max-w-xl mx-auto">
             <div className="text-center mb-8">

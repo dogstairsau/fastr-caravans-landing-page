@@ -1,65 +1,54 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import { HeroForm } from "./HeroForm";
+import { ArrowRight, Calculator, ShieldCheck } from "lucide-react";
+import { trackInitiateCheckout, trackLead } from "@/lib/track";
+
+const APPLY_URL = "https://fastrfinance.com.au/form/classic?asset_type=caravan";
 
 export function MobileFormGate() {
-  const [open, setOpen] = useState(false);
+  const onApplyClick = () => {
+    trackInitiateCheckout({ content_name: "mobile_hero_cta" });
+    trackLead({ content_name: "mobile_hero_cta" });
+  };
 
   return (
-    <div className="lg:hidden">
-      <AnimatePresence mode="wait" initial={false}>
-        {open ? (
-          <motion.div
-            key="form"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <HeroForm variant="light" />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="gate"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2 }}
-            className="bg-white rounded-[1.75rem] border border-[var(--color-navy-100)] shadow-[var(--shadow-pop)] p-5"
-          >
-            <button
-              type="button"
-              onClick={() => setOpen(true)}
-              className="btn-coral w-full text-base py-4"
-            >
-              Get My Options <ArrowRight size={18} />
-            </button>
+    <div className="lg:hidden bg-white rounded-[1.75rem] border border-[var(--color-navy-100)] shadow-[var(--shadow-pop)] p-5">
+      <a
+        href={APPLY_URL}
+        onClick={onApplyClick}
+        className="btn-coral w-full text-base py-4"
+      >
+        Get My Options <ArrowRight size={18} />
+      </a>
 
-            <p className="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-[var(--color-navy-300)]">
-              <ShieldCheck size={14} /> Won&apos;t affect your credit score
-            </p>
+      <a
+        href="#calculator"
+        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-navy-100)] bg-[var(--color-navy-50)] py-3 text-sm font-semibold text-[var(--color-navy)] hover:border-[var(--color-navy)] transition"
+      >
+        <Calculator size={16} strokeWidth={2.25} />
+        Use our calculator
+      </a>
 
-            <p className="mt-2.5 text-center text-[12.5px] text-[var(--color-navy-400)]">
-              Not sure how much?{" "}
-              <a
-                href="tel:1300604183"
-                className="font-semibold text-[var(--color-navy)] underline decoration-[var(--color-coral)] decoration-2 underline-offset-[3px]"
-              >
-                Talk to a broker →
-              </a>
-            </p>
+      <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-[var(--color-navy-300)]">
+        <ShieldCheck size={14} /> Won&apos;t affect your credit score
+      </p>
 
-            <div className="mt-2.5 flex items-center justify-center gap-2 text-[11px] text-[var(--color-navy-300)]">
-              <GoogleG className="w-4 h-4" />
-              <span>
-                <span className="font-bold text-[var(--color-navy)]">200+ five-star reviews</span> on Google
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <p className="mt-2.5 text-center text-[12.5px] text-[var(--color-navy-400)]">
+        Not sure how much?{" "}
+        <a
+          href="tel:1300604183"
+          className="font-semibold text-[var(--color-navy)] underline decoration-[var(--color-coral)] decoration-2 underline-offset-[3px]"
+        >
+          Talk to a broker →
+        </a>
+      </p>
+
+      <div className="mt-3 flex items-center justify-center gap-2 text-[11px] text-[var(--color-navy-300)]">
+        <GoogleG className="w-4 h-4" />
+        <span>
+          <span className="font-bold text-[var(--color-navy)]">200+ five-star reviews</span> on Google
+        </span>
+      </div>
     </div>
   );
 }

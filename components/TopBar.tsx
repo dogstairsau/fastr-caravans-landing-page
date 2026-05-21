@@ -19,7 +19,14 @@ export function TopBar() {
             <Phone size={16} />
             1300 604 183
           </a>
-          <a href="#apply" className="btn-coral text-sm md:text-[0.95rem] py-2.5 px-4 md:px-5">
+          {/* Mobile → external form (no inline calculator). Desktop → anchor to the hero form card. */}
+          <a
+            href="https://fastrfinance.com.au/form/classic?asset_type=caravan"
+            className="btn-coral text-sm py-2.5 px-4 lg:hidden"
+          >
+            Get My Options
+          </a>
+          <a href="#apply" className="btn-coral hidden lg:inline-flex text-sm md:text-[0.95rem] py-2.5 px-4 md:px-5">
             Get My Options
           </a>
         </div>

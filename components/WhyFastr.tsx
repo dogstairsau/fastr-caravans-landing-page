@@ -130,7 +130,11 @@ export function WhyFastr() {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#apply" className="btn-coral">
+              {/* Mobile → external form. Desktop → anchor to the hero form card. */}
+              <a href="https://fastrfinance.com.au/form/classic?asset_type=caravan" className="btn-coral lg:hidden">
+                Get My Options <ArrowRight size={18} />
+              </a>
+              <a href="#apply" className="btn-coral hidden lg:inline-flex">
                 Get My Options <ArrowRight size={18} />
               </a>
             </div>

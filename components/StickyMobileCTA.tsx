@@ -27,7 +27,7 @@ export function StickyMobileCTA() {
         >
           <Phone size={18} />
         </a>
-        <a href="#apply" className="btn-coral flex-1 h-12 text-sm">
+        <a href="https://fastrfinance.com.au/form/classic?asset_type=caravan" className="btn-coral flex-1 h-12 text-sm">
           Get My Options <ArrowRight size={16} />
         </a>
       </div>

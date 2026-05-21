@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Calculator, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { trackInitiateCheckout, trackLead } from "@/lib/track";
 
 const APPLY_URL = "https://fastrfinance.com.au/form/classic?asset_type=caravan";
@@ -19,14 +19,6 @@ export function MobileFormGate() {
         className="btn-coral w-full text-base py-4"
       >
         Get My Options <ArrowRight size={18} />
-      </a>
-
-      <a
-        href="#calculator"
-        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-navy-100)] bg-[var(--color-navy-50)] py-3 text-sm font-semibold text-[var(--color-navy)] hover:border-[var(--color-navy)] transition"
-      >
-        <Calculator size={16} strokeWidth={2.25} />
-        Use our calculator
       </a>
 
       <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-[var(--color-navy-300)]">

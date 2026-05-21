@@ -66,7 +66,7 @@ function HeroVariantA() {
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>
               <br />
-              <span className="font-bold">Fastr<span className="coral-word">.</span></span>
+              <span className="font-bold">Fastr<span className="text-[var(--color-coral)]">.</span></span>
             </h1>
             <p className="mt-5 md:mt-7 max-w-md text-base md:text-lg leading-snug text-[var(--color-navy)] text-balance">
               Instantly compares 40+ lenders to show your cheapest repayment.
@@ -139,7 +139,7 @@ function HeroVariantB() {
             <br />
             <span className="whitespace-nowrap">Caravan Loans,</span>
             <br />
-            <span>Fastr<span className="coral-word">.</span></span>
+            <span>Fastr<span className="text-[var(--color-coral)]">.</span></span>
           </h1>
 
           <p className="mt-6 md:mt-7 mx-auto max-w-xl text-lg md:text-xl leading-snug text-white/90 text-balance">
@@ -156,12 +156,6 @@ function HeroVariantB() {
             </a>
             <a href="#hero-form" className="btn-coral text-base md:text-lg py-4 px-7 hidden lg:inline-flex">
               Get My Options <ArrowRight size={18} />
-            </a>
-            <a
-              href="#calculator"
-              className="inline-flex items-center gap-2 px-5 py-3 text-sm md:text-base font-semibold text-white/90 hover:text-white transition lg:hidden"
-            >
-              Use our calculator →
             </a>
             <a
               href="tel:1300604183"
@@ -283,7 +277,7 @@ function HeroVariantC() {
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>
               <br />
-              <span className="font-bold">Fastr<span className="coral-word">.</span></span>
+              <span className="font-bold">Fastr<span className="text-[var(--color-coral)]">.</span></span>
             </h1>
 
             <p className="mt-5 md:mt-7 max-w-md text-base md:text-lg leading-snug text-[var(--color-navy)] text-balance">

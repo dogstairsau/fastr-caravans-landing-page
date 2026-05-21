@@ -89,8 +89,8 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
       <div
         className={`relative flex items-center rounded-2xl border transition ${
           isNavy
-            ? "bg-white/5 border-white/15 focus-within:border-[var(--color-cyan)]"
-            : "bg-[var(--color-navy-50)] border-[var(--color-navy-100)] focus-within:border-[var(--color-cyan)] focus-within:bg-white"
+            ? "bg-white/5 border-white/15 focus-within:border-[var(--color-coral)]"
+            : "bg-[var(--color-navy-50)] border-[var(--color-navy-100)] focus-within:border-[var(--color-coral)] focus-within:bg-white"
         }`}
       >
         <span className="pl-5 pr-1 font-[var(--font-display)] text-4xl md:text-5xl font-bold tracking-[-0.03em] select-none">$</span>
@@ -128,7 +128,7 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
             onClick={() => setAmount(v)}
             className={`rounded-full border text-xs font-semibold py-1.5 px-3 transition ${
               amount === v
-                ? "bg-[var(--color-cyan)] border-[var(--color-cyan)] text-white"
+                ? "bg-[var(--color-coral)] border-[var(--color-coral)] text-white"
                 : isNavy
                   ? "border-white/15 text-white/80 hover:border-white/40"
                   : "border-[var(--color-navy-100)] text-[var(--color-navy)] hover:border-[var(--color-navy)]"
@@ -153,7 +153,7 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
         Not sure how much you need?{" "}
         <a
           href="tel:1300604183"
-          className="font-semibold text-[var(--color-navy)] underline decoration-[var(--color-cyan)] decoration-2 underline-offset-[3px] hover:decoration-[3px] transition"
+          className="font-semibold text-[var(--color-navy)] underline decoration-[var(--color-coral)] decoration-2 underline-offset-[3px] hover:decoration-[3px] transition"
         >
           Talk to a broker →
         </a>

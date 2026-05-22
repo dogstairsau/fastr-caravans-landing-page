@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Caravan, Mountain, Truck, Home, Tent } from "lucide-react";
 
-const TEAM =
-  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=85&auto=format&fit=crop";
+const TEAM = "/why-fastr-caravan.jpg";
 
 function CloverIcon({ className = "" }: { className?: string }) {
   return (
@@ -75,7 +74,7 @@ export function WhyFastr() {
             <div className="relative aspect-[5/4] photo-arch shadow-[var(--shadow-pop)] max-w-md mx-auto lg:max-w-none">
               <Image
                 src={TEAM}
-                alt="The Fastr Finance team"
+                alt="Caravan parked at a scenic mountain campsite at golden hour"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"

@@ -61,12 +61,12 @@ function HeroVariantA() {
       <div className="container-page relative pt-8 md:pt-20 pb-10 md:pb-24">
         <div className="grid lg:grid-cols-[1.15fr_minmax(380px,1fr)] gap-10 lg:gap-14 items-start">
           <div className="relative min-w-0">
-            <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-bold tracking-[-0.05em] leading-[0.95] text-[var(--color-navy)]">
+            <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-extrabold tracking-[-0.025em] leading-[1.02] text-[var(--color-navy)]">
               Hassle Free
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>
               <br />
-              <span className="font-bold">Fastr<span className="text-[var(--color-coral)]">.</span></span>
+              Fastr<span className="text-[var(--color-coral)]">.</span>
             </h1>
             <p className="mt-5 md:mt-7 max-w-md text-base md:text-lg leading-snug text-[var(--color-navy)] text-balance">
               Instantly compares 40+ lenders to show your cheapest repayment.
@@ -134,7 +134,7 @@ function HeroVariantB() {
             <span className="opacity-90">200+ five-star Google reviews</span>
           </p>
 
-          <h1 className="mt-6 font-[var(--font-display)] text-[clamp(2.9rem,7vw,6rem)] font-bold tracking-[-0.045em] leading-[0.95]">
+          <h1 className="mt-6 font-[var(--font-display)] text-[clamp(2.9rem,7vw,6rem)] font-extrabold tracking-[-0.025em] leading-[1.02]">
             Hassle Free
             <br />
             <span className="whitespace-nowrap">Caravan Loans,</span>
@@ -272,7 +272,7 @@ function HeroVariantC() {
               <span>200+ Google reviews</span>
             </p>
 
-            <h1 className="mt-5 font-[var(--font-display)] text-[clamp(2.7rem,6.2vw,5.5rem)] font-bold tracking-[-0.05em] leading-[0.95] text-[var(--color-navy)]">
+            <h1 className="mt-5 font-[var(--font-display)] text-[clamp(2.7rem,6.2vw,5.5rem)] font-extrabold tracking-[-0.025em] leading-[1.02] text-[var(--color-navy)]">
               Hassle Free
               <br />
               <span className="whitespace-nowrap">Caravan Loans,</span>

@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fastrfinance.com.au"),
+  metadataBase: new URL("https://fastr-caravans-landing-page.vercel.app"),
   title: "Caravan Loans — Compare 40+ lenders in 60 seconds | Fastr Finance",
   description:
     "Hassle-free caravan loans. Fastr Technology instantly compares 40+ lenders to show your cheapest repayment. ★★★★★ 200+ Google reviews. No credit score impact.",
@@ -59,6 +59,21 @@ export const metadata: Metadata = {
       "Fastr Technology compares 40+ lenders to find your cheapest repayment. 5-star Google rated. No credit score impact.",
     type: "website",
     locale: "en_AU",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Caravan and 4WD parked at a scenic mountain campsite at golden hour",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hassle Free Caravan Loans, Fastr.",
+    description:
+      "Fastr Technology compares 40+ lenders to find your cheapest repayment. 5-star Google rated. No credit score impact.",
+    images: ["/og-image.jpg"],
   },
   robots: { index: false, follow: false },
 };

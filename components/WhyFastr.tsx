@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Caravan, Mountain, Truck, Home, Tent } from "lucide-react";
 
-const TEAM = "/why-fastr-caravan.jpg";
+const TEAM = "/why-fastr-caravan.png";
 
 function CloverIcon({ className = "" }: { className?: string }) {
   return (

@@ -32,9 +32,9 @@ export function TopBar() {
         <a href="#" aria-label="Fastr Finance home" className="inline-flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={scrolled ? "/fastr-logo-dark.svg" : "/fastr-logo.svg"}
+            src="/fastr-logo-dark.svg"
             alt="Fastr Finance"
-            className="h-7 md:h-8 w-auto select-none transition-opacity"
+            className="h-7 md:h-8 w-auto select-none"
             draggable={false}
           />
         </a>
@@ -42,12 +42,7 @@ export function TopBar() {
         <div className="flex items-center gap-2 md:gap-3">
           <a
             href="tel:1300604183"
-            className={
-              "hidden md:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors " +
-              (scrolled
-                ? "text-[var(--color-navy)] hover:text-[var(--color-navy-900)]"
-                : "text-white/90 hover:text-white")
-            }
+            className="hidden md:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-navy)] hover:text-[var(--color-navy-900)] transition-colors"
           >
             <Phone size={16} />
             1300 604 183

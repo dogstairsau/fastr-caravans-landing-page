@@ -58,7 +58,7 @@ function HeroVariantA() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-sand)]/40" />
       </div>
 
-      <div className="container-page relative pt-8 md:pt-20 pb-10 md:pb-24">
+      <div className="container-page relative pt-24 md:pt-28 pb-10 md:pb-24">
         <div className="grid lg:grid-cols-[1.15fr_minmax(380px,1fr)] gap-10 lg:gap-14 items-start">
           <div className="relative min-w-0">
             <h1 className="font-[var(--font-display)] text-[clamp(2.6rem,6vw,5.25rem)] font-extrabold tracking-[-0.025em] leading-[1.02] text-[var(--color-navy)]">
@@ -259,7 +259,7 @@ function HeroVariantC() {
       <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[var(--color-cyan)]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 right-1/4 h-[460px] w-[460px] rounded-full bg-[var(--color-yellow)]/20 blur-3xl" />
 
-      <div className="container-page relative pt-10 md:pt-24 pb-12 md:pb-28">
+      <div className="container-page relative pt-24 md:pt-32 pb-12 md:pb-28">
         <div className="grid lg:grid-cols-[1.15fr_minmax(380px,1fr)] gap-10 lg:gap-14 items-start">
           <div className="relative min-w-0">
             {/* Eyebrow */}

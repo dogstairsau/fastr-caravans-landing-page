@@ -110,6 +110,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('track', 'PageView');
           `}
         </Script>
+        <Script id="meta-pixel-scroll" strategy="afterInteractive">
+          {`window.__fastrScrollFired=false;window.__fastrOnScroll=function(){if(window.__fastrScrollFired)return;window.__fastrScrollFired=true;window.removeEventListener('scroll',window.__fastrOnScroll);if(window.fbq)window.fbq('trackCustom','PageScroll');};window.addEventListener('scroll',window.__fastrOnScroll,{passive:true});`}
+        </Script>
       </head>
       <body className="min-h-screen bg-white text-[var(--color-navy)]">
         <noscript>

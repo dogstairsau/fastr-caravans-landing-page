@@ -16,7 +16,7 @@ const VEHICLE_TYPES = [
     label: "CARAVAN",
     sub: "(Campervans, Trailers)",
     img: "https://fastrfinance.com.au/wp-content/uploads/2021/07/Group-1-1.png",
-    url: "https://fastrfinance.com.au/caravan-loan-form/",
+    url: "https://fastrfinance.com.au/form/classic",
   },
   {
     key: "boat",
@@ -83,6 +83,9 @@ const LENDERS = [
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/latitide.png",
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/image-7.png",
   "https://fastrfinance.com.au/wp-content/uploads/2021/06/mac.png",
+  "https://fastrfinance.com.au/wp-content/uploads/2021/06/metro.png",
+  "https://fastrfinance.com.au/wp-content/uploads/2021/06/money3.png",
+  "https://fastrfinance.com.au/wp-content/uploads/2021/06/pepper_money_logo.png",
 ];
 
 const STEPS = [
@@ -146,11 +149,30 @@ const FAQS = [
 export default function HomepageCaravan() {
   const [amount, setAmount] = useState("");
   const [amount2, setAmount2] = useState("");
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
+
+  const toggleFaq = (i: number) => {
+    setOpenFaqs((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  };
   const [modalOpen, setModalOpen] = useState(false);
   const [modalAmount, setModalAmount] = useState("");
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [enquiry, setEnquiry] = useState({
+    firstName: "",
+    surname: "",
+    email: "",
+    phone: "",
+    message: "",
+    consent: false,
+  });
+  const [enquirySent, setEnquirySent] = useState(false);
 
   const openModal = (val: string) => {
     setModalAmount(val);
@@ -163,6 +185,19 @@ export default function HomepageCaravan() {
     window.location.href = url.toString();
   };
 
+  const submitEnquiry = (e: React.FormEvent) => {
+    e.preventDefault();
+    setEnquirySent(true);
+  };
+
+  const closeEnquiry = () => {
+    setEnquiryOpen(false);
+    setTimeout(() => {
+      setEnquirySent(false);
+      setEnquiry({ firstName: "", surname: "", email: "", phone: "", message: "", consent: false });
+    }, 250);
+  };
+
   useEffect(() => {
     const onScroll = () => setHeaderScrolled(window.scrollY > 40);
     onScroll();
@@ -171,18 +206,21 @@ export default function HomepageCaravan() {
   }, []);
 
   useEffect(() => {
-    if (!modalOpen) return;
+    if (!modalOpen && !enquiryOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalOpen(false);
+      if (e.key === "Escape") {
+        setModalOpen(false);
+        if (enquiryOpen) closeEnquiry();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-  }, [modalOpen]);
+  }, [modalOpen, enquiryOpen]);
 
   useEffect(() => {
     if (!mobileNavOpen) return;
@@ -363,9 +401,9 @@ export default function HomepageCaravan() {
           <h2>
             <b>Get In Touch With the Fastr Team</b>
           </h2>
-          <a href="#apply" className="hc-btn-red">
+          <button type="button" className="hc-btn-red" onClick={() => setEnquiryOpen(true)}>
             Enquire Now
-          </a>
+          </button>
         </div>
       </section>
 
@@ -386,7 +424,7 @@ export default function HomepageCaravan() {
               trailers and toy haulers.
             </p>
             <div className="hc-photo-content__cta">
-              <a href="#apply" className="hc-btn-red">
+              <a href="https://fastrfinance.com.au/form/classic" className="hc-btn-red">
                 Get Started
               </a>
               <a href="tel:1300604183" className="hc-link-phone hc-link-phone--coral">
@@ -553,7 +591,14 @@ export default function HomepageCaravan() {
               </p>
               <span className="link-more">Learn More →</span>
             </a>
-            <a href="https://fastrfinance.com.au/homepage-caravan/" className="hc-columnbox__item">
+            <a
+              href="#top"
+              className="hc-columnbox__item"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://fastrfinance.com.au/wp-content/uploads/2021/06/Group-139.png" alt="" />
               <h3>Caravans &amp; RVs</h3>
@@ -590,7 +635,7 @@ export default function HomepageCaravan() {
           <div>
             <h2 className="hc-photo-content__title">Get obligation free expert advice on your next car loan!</h2>
             <div className="hc-photo-content__cta">
-              <a href="#apply" className="hc-btn-red">
+              <a href="https://fastrfinance.com.au/form/classic" className="hc-btn-red">
                 Get it now
               </a>
               <a href="tel:1300604183" className="hc-link-phone">
@@ -613,8 +658,8 @@ export default function HomepageCaravan() {
             {FAQS.map((f, i) => (
               <div
                 key={f.q}
-                className={`hc-faq__item${openFaq === i ? " open" : ""}`}
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className={`hc-faq__item${openFaqs.has(i) ? " open" : ""}`}
+                onClick={() => toggleFaq(i)}
               >
                 <h3>
                   {f.q}
@@ -638,9 +683,9 @@ export default function HomepageCaravan() {
           <div className="hc-footer-banner__content">
             <h2>Are you ready for your next adventure?</h2>
             <p>Get a car you love, at a payment you can afford.</p>
-            <a href="#apply" className="hc-btn-ghost">
+            <button type="button" className="hc-btn-ghost" onClick={() => openModal("")}>
               See my options
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -751,6 +796,134 @@ export default function HomepageCaravan() {
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quick Enquiry modal */}
+      {enquiryOpen && (
+        <div
+          className="hc-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Quick Enquiry"
+          onClick={closeEnquiry}
+        >
+          <div className="hc-modal__panel hc-enquiry" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="hc-modal__close hc-enquiry__close"
+              onClick={closeEnquiry}
+              aria-label="Close"
+            >
+              <X size={22} />
+            </button>
+
+            <div className="hc-enquiry__header">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://fastrfinance.com.au/wp-content/uploads/2024/01/6.png"
+                alt=""
+                className="hc-enquiry__avatar"
+              />
+              <div className="hc-enquiry__heading">
+                <h2 className="hc-enquiry__title">Quick Enquiry</h2>
+                <p className="hc-enquiry__subtitle">
+                  Hello! Please fill out the form below and we&rsquo;ll get back to you with 24 hours.
+                </p>
+              </div>
+            </div>
+
+            {enquirySent ? (
+              <div className="hc-enquiry__success">
+                <h3>Thanks — your enquiry is on its way.</h3>
+                <p>A Fastr loan expert will be in touch within 24 hours.</p>
+                <button type="button" className="hc-btn-red" onClick={closeEnquiry}>
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form className="hc-enquiry__form" onSubmit={submitEnquiry}>
+                <div className="hc-enquiry__grid">
+                  <label className="hc-enquiry__field">
+                    <span className="hc-enquiry__label">First Name</span>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter First Name"
+                      value={enquiry.firstName}
+                      onChange={(e) => setEnquiry({ ...enquiry, firstName: e.target.value })}
+                    />
+                  </label>
+                  <label className="hc-enquiry__field">
+                    <span className="hc-enquiry__label">Surname</span>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter Surname"
+                      value={enquiry.surname}
+                      onChange={(e) => setEnquiry({ ...enquiry, surname: e.target.value })}
+                    />
+                  </label>
+                  <label className="hc-enquiry__field">
+                    <span className="hc-enquiry__label">Email</span>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter Email Address"
+                      value={enquiry.email}
+                      onChange={(e) => setEnquiry({ ...enquiry, email: e.target.value })}
+                    />
+                  </label>
+                  <label className="hc-enquiry__field">
+                    <span className="hc-enquiry__label">Phone Number</span>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Enter Mobile Number"
+                      value={enquiry.phone}
+                      onChange={(e) => setEnquiry({ ...enquiry, phone: e.target.value })}
+                    />
+                  </label>
+                </div>
+
+                <label className="hc-enquiry__field hc-enquiry__field--full">
+                  <span className="hc-enquiry__label">Message</span>
+                  <textarea
+                    rows={4}
+                    placeholder="Enter your message"
+                    value={enquiry.message}
+                    onChange={(e) => setEnquiry({ ...enquiry, message: e.target.value })}
+                  />
+                </label>
+
+                <div className="hc-enquiry__privacy">
+                  <span className="hc-enquiry__label">Privacy</span>
+                  <label className="hc-enquiry__consent">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={enquiry.consent}
+                      onChange={(e) => setEnquiry({ ...enquiry, consent: e.target.checked })}
+                    />
+                    <span>
+                      I confirm that I have read and accept the{" "}
+                      <a
+                        href="https://fastrfinance.com.au/privacy-policy/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Privacy Consent
+                      </a>
+                    </span>
+                  </label>
+                </div>
+
+                <button type="submit" className="hc-btn-red hc-enquiry__submit">
+                  Send Enquiry
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}

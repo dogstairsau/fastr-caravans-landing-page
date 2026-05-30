@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Inter, Manrope, Space_Grotesk, Caveat, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -82,37 +81,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-AU" className={`${inter.variable} ${manrope.variable} ${display.variable} ${script.variable} ${poppins.variable}`}>
       <head>
-        <Script
-          id="gtag-loader"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-          strategy="afterInteractive"
+        {/* Google tag (gtag.js) — loader + GA4 + Google Ads config.
+            Plain <script> tags so they render in <head> and execute during
+            page load (Tag Assistant inspects the initial HTML). */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA4_ID}');gtag('config', '${GOOGLE_ADS_ID}');`,
+          }}
         />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA4_ID}');
-            gtag('config', '${GOOGLE_ADS_ID}');
-          `}
-        </Script>
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${META_PIXEL_ID}');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-        <Script id="meta-pixel-scroll" strategy="afterInteractive">
-          {`window.__fastrScrollFired=false;window.__fastrOnScroll=function(){if(window.__fastrScrollFired)return;window.__fastrScrollFired=true;window.removeEventListener('scroll',window.__fastrOnScroll);if(window.fbq)window.fbq('trackCustom','PageScroll');};window.addEventListener('scroll',window.__fastrOnScroll,{passive:true});`}
-        </Script>
+        {/* Meta Pixel — base code + PageView. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '${META_PIXEL_ID}');fbq('track', 'PageView');`,
+          }}
+        />
+        {/* Meta Pixel — PageScroll custom event on first scroll. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__fastrScrollFired=false;window.__fastrOnScroll=function(){if(window.__fastrScrollFired)return;window.__fastrScrollFired=true;window.removeEventListener('scroll',window.__fastrOnScroll);if(window.fbq)window.fbq('trackCustom','PageScroll');};window.addEventListener('scroll',window.__fastrOnScroll,{passive:true});`,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-white text-[var(--color-navy)]">
         <noscript>

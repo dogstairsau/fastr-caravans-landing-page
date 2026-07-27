@@ -12,8 +12,8 @@ export function FinalCTA() {
           <div className="min-w-0">
             <h2 className="font-[var(--font-display)] text-[clamp(1.9rem,5.5vw,5rem)] font-bold leading-[1.05] tracking-[-0.05em]">
               <span className="block">Your next</span>
-              <span className="block">adventure starts in</span>
-              <span className="coral-word whitespace-nowrap">60 seconds.</span>
+              <span className="block">adventure starts</span>
+              <span className="block">in <span className="coral-word whitespace-nowrap">60 seconds.</span></span>
             </h2>
             <p className="mt-5 md:mt-6 text-base md:text-xl text-[var(--color-navy)] max-w-lg leading-relaxed">
               Tell us how much. We&apos;ll match you to the cheapest of 40+ lenders. No credit score impact.

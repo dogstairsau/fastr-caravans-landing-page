@@ -47,7 +47,7 @@ export function Footer() {
             Fastr Finance Pty Ltd (ABN 70 635 779 707) is an authorised credit representative (ACR #530028) of Fintelligence Pty Ltd (Australian Credit Licence #511803).
           </p>
           <p>
-            *Approval times depend on lender assessment and documentation provided. Rates, terms and approvals are set by individual lenders and can vary based on your circumstances. The repayment calculator on this page is indicative only and is not an offer of finance. Subject to credit assessment, lender criteria, fees and charges.
+            *Approval times depend on lender assessment and documentation provided. Terms and approvals are set by individual lenders and can vary based on your circumstances. The repayment calculator on this page is indicative only and is not an offer of finance. Subject to credit assessment, lender criteria, fees and charges.
           </p>
           <p className="text-white/50">© Fastr Finance {new Date().getFullYear()}. All rights reserved.</p>
         </div>

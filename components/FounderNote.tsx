@@ -32,7 +32,7 @@ export function FounderNote() {
 
             <p className="mt-6 md:mt-8 text-[0.95rem] md:text-[1rem] leading-[1.65] text-[var(--color-navy-400)] max-w-md">
               We built Fastr to feel like having a mate in the industry. My
-              team and I will fight for a sharper rate, explain every fee in
+              team and I will fight for a better deal, explain every fee in
               plain English, and treat your application like it&rsquo;s our
               own family getting on the road.
             </p>

@@ -7,10 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const FAQS = [
   { q: "How does a loan through Fastr Finance work?", a: "You tell us how much you want to borrow and a few quick details. Our Fastr matching technology compares 40+ lenders and finds your cheapest repayment options — usually in under a minute. A specialist then handles the application, paperwork and settlement. You stay in control the whole way." },
   { q: "Will checking my options affect my credit score?", a: "No. Our initial match uses a soft credit check that does not impact your credit score. You can see your real options before deciding to apply." },
-  { q: "Are your rates fixed or variable?", a: "Most caravan loans are fixed rate, which means your repayment stays the same for the life of the loan. We'll show you both fixed and variable options if available." },
-  { q: "Do I need a deposit?", a: "No deposit is required for most caravan loans, subject to lender approval and the asset type. A deposit can sometimes get you a sharper rate — your specialist will walk you through your options." },
+  { q: "Do I need a deposit?", a: "No deposit is required for most caravan loans, subject to lender approval and the asset type. A deposit can sometimes improve your options — your specialist will walk you through them." },
   { q: "Can I finance new and used caravans?", a: "Yes — new, used, dealer or private sale. We finance every major Australian brand including Jayco, Avida, New Age, Lotus and Crusader." },
-  { q: "How long can the loan term be?", a: "Caravan loan terms typically run from 1 to 7 years. Longer terms mean lower repayments but more interest paid overall." },
+  { q: "How long can the loan term be?", a: "Caravan loan terms typically run from 1 to 7 years. Longer terms mean lower repayments but a higher overall cost." },
   { q: "Can I make extra repayments or pay out my loan early?", a: "Most lenders we work with allow extra repayments and early payouts. We'll match you with options that suit how you want to manage the loan." },
 ];
 

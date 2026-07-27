@@ -8,7 +8,7 @@ import { BadgeCheck, MapPin, Clock, ArrowRight, Star } from "lucide-react";
 const TRUST = [
   { icon: MapPin, label: "Australia's Caravan Finance Specialists" },
   { icon: Clock, label: "Approvals in hours" },
-  { icon: BadgeCheck, label: "Best Rate Guaranteed" },
+  { icon: BadgeCheck, label: "40+ Lenders Compared" },
 ];
 
 /**

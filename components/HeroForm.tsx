@@ -112,7 +112,7 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
           {monthly > 0 ? (
             <>
               <span className="font-bold text-[var(--color-navy)] text-sm">≈ {formatCurrency(monthly)}/mo</span>
-              <span className="ml-1.5 opacity-80">· {EST_TERM_YEARS}-yr est. at {EST_RATE_PCT}% p.a.</span>
+              <span className="ml-1.5 opacity-80">· {EST_TERM_YEARS}-yr est. term</span>
             </>
           ) : (
             <>Min $5,000 · max $500,000</>

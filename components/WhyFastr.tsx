@@ -46,7 +46,7 @@ const PILLARS = [
     icon: HourglassIcon,
     color: "var(--color-yellow)",
     title: "40+ lenders, one form",
-    body: "More lenders means more chances of approval and a sharper rate.",
+    body: "More lenders means more chances of approval and a better deal.",
   },
   {
     icon: WavesIcon,

@@ -20,7 +20,7 @@ const REVIEWS: Review[] = [
   {
     name: "Mark T",
     location: "Brisbane, QLD",
-    body: "Bought a Jayco off a private seller. Other brokers said it was too hard. Fastr made it work and got us a sharp rate.",
+    body: "Bought a Jayco off a private seller. Other brokers said it was too hard. Fastr made it work and got us a great deal.",
   },
   {
     name: "Lisa P",
@@ -35,7 +35,7 @@ const REVIEWS: Review[] = [
   {
     name: "David L",
     location: "Perth, WA",
-    body: "Sharp rate, no fuss. On the road in two weeks. Best finance experience I've had.",
+    body: "No fuss at all. On the road in two weeks. Best finance experience I've had.",
   },
   {
     name: "Wendy R",
@@ -45,7 +45,7 @@ const REVIEWS: Review[] = [
   {
     name: "Greg P",
     location: "Bendigo, VIC",
-    body: "Three weeks of dealer pressure didn't get me anywhere. Fastr undercut their rate by 1.2% and explained every line of the contract.",
+    body: "Three weeks of dealer pressure didn't get me anywhere. Fastr beat the dealer's offer and explained every line of the contract.",
   },
 ];
 

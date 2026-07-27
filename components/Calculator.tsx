@@ -140,7 +140,7 @@ export function Calculator() {
 
               {/* Footnote */}
               <p className="mt-7 text-[11px] text-[var(--color-navy-300)] leading-relaxed">
-                Indicative only at {(indicativeRate * 100).toFixed(2)}% p.a. Your actual rate depends on lender assessment.
+                Indicative only. Your actual repayments depend on lender assessment.
               </p>
             </div>
 

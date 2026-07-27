@@ -6,7 +6,6 @@ import { TopBar } from "@/components/TopBar";
 import { Hero } from "@/components/Hero";
 import { LenderBar } from "@/components/LenderBar";
 import { WhyFastr } from "@/components/WhyFastr";
-import { HappyCustomers } from "@/components/HappyCustomers";
 import { Calculator } from "@/components/Calculator";
 import { Process } from "@/components/Process";
 import { Gallery } from "@/components/Gallery";
@@ -27,11 +26,10 @@ export default function ConceptPage() {
         <LenderBar />
         <WhyFastr />
         <FounderNote />
-        <HappyCustomers />
+        <SocialProof />
         <Calculator />
         <Process />
         <Gallery />
-        <SocialProof />
         <FAQ />
         <FinalCTA />
       </main>

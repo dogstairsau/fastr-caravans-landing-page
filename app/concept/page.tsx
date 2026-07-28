@@ -24,9 +24,9 @@ export default function ConceptPage() {
       <main>
         <Hero />
         <LenderBar />
+        <SocialProof />
         <WhyFastr />
         <FounderNote />
-        <SocialProof />
         <Calculator />
         <Process />
         <Gallery />

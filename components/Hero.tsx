@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { HeroForm } from "./HeroForm";
 import { MobileFormGate } from "./MobileFormGate";
-import { BadgeCheck, MapPin, Clock, ArrowRight, Star } from "lucide-react";
+import { Check, ArrowRight, Star } from "lucide-react";
 
 const TRUST = [
-  { icon: MapPin, label: "Australia's Caravan Finance Specialists" },
-  { icon: Clock, label: "Approvals in hours" },
-  { icon: BadgeCheck, label: "40+ Lenders Compared" },
+  { icon: Check, label: "Australia's Caravan Finance Specialists" },
+  { icon: Check, label: "Approvals in hours" },
+  { icon: Check, label: "40+ Lenders Compared" },
 ];
 
 /**
@@ -77,10 +77,10 @@ function HeroVariantA() {
                 return (
                   <li
                     key={t.label}
-                    className="flex items-center gap-3 text-sm font-semibold text-[var(--color-navy)]"
+                    className="flex items-center gap-3 text-sm md:text-[0.95rem] font-semibold text-[var(--color-navy)]"
                   >
-                    <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--color-navy)] text-white shrink-0">
-                      <Icon size={14} strokeWidth={2.25} />
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-navy)] text-white shrink-0">
+                      <Icon size={20} strokeWidth={3} />
                     </span>
                     {t.label}
                   </li>
@@ -171,8 +171,8 @@ function HeroVariantB() {
               const Icon = t.icon;
               return (
                 <li key={t.label} className="inline-flex items-center gap-2 text-center sm:text-left">
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/15 backdrop-blur-md text-white">
-                    <Icon size={12} strokeWidth={2.5} />
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/15 backdrop-blur-md text-white">
+                    <Icon size={15} strokeWidth={3} />
                   </span>
                   <span className="leading-tight">{t.label}</span>
                 </li>
@@ -290,10 +290,10 @@ function HeroVariantC() {
                 return (
                   <li
                     key={t.label}
-                    className="flex items-center gap-3 text-sm font-semibold text-[var(--color-navy)]"
+                    className="flex items-center gap-3 text-sm md:text-[0.95rem] font-semibold text-[var(--color-navy)]"
                   >
-                    <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--color-navy)] text-white shrink-0">
-                      <Icon size={14} strokeWidth={2.25} />
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-navy)] text-white shrink-0">
+                      <Icon size={20} strokeWidth={3} />
                     </span>
                     {t.label}
                   </li>

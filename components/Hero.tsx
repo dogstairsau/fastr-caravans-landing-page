@@ -87,6 +87,24 @@ function HeroVariantA() {
                 );
               })}
             </ul>
+            {/* Caravan-brand proof line */}
+            <div className="mt-7 md:mt-9 max-w-md">
+              <p className="text-sm font-bold text-[var(--color-navy)]">
+                Every major Australian caravan brand. <span className="text-[var(--color-coral)]">Financed.</span>
+              </p>
+              <div className="mt-3 flex items-center gap-5 opacity-60">
+                {["jayco.svg", "supreme.svg", "avan.png", "lotus.svg", "snowy-river.png"].map((f) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={f}
+                    src={`/brands/${f}`}
+                    alt=""
+                    className="h-6 md:h-7 w-auto object-contain"
+                    style={{ filter: "grayscale(1)" }}
+                  />
+                ))}
+              </div>
+            </div>
             <div className="mt-6 md:mt-8">
               <MobileFormGate />
             </div>

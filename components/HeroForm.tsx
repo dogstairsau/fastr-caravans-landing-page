@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Phone, Star } from "lucide-react";
 import { trackLead, trackInitiateCheckout, buildFormUrl } from "@/lib/track";
 
 const PRESETS = [30000, 50000, 80000, 120000];
@@ -20,10 +20,15 @@ function calcMonthly(principal: number, ratePct = EST_RATE_PCT, years = EST_TERM
 
 function GoogleProofRow() {
   return (
-    <div className="mt-4 flex items-center justify-center gap-2 text-[11px] text-[var(--color-navy-300)]">
-      <GoogleG className="w-4 h-4" />
-      <span>
-        <span className="font-bold text-[var(--color-navy)]">200+ five-star reviews</span> on Google
+    <div className="mt-5 flex items-center justify-center gap-2.5">
+      <GoogleG className="w-6 h-6 shrink-0" />
+      <span className="inline-flex items-center gap-0.5" aria-label="Rated 5.0 stars on Google">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} size={16} fill="#FCB400" stroke="#FCB400" />
+        ))}
+      </span>
+      <span className="text-sm text-[var(--color-navy-400)]">
+        <span className="font-bold text-[var(--color-navy)]">5.0</span> · 200+ five-star reviews
       </span>
     </div>
   );
@@ -145,18 +150,19 @@ export function HeroForm({ id = "apply", variant = "light" }: { id?: string; var
         Get My Options <ArrowRight size={18} />
       </button>
 
+      <a
+        href="tel:1300604183"
+        className={`mt-3 w-full inline-flex items-center justify-center gap-2 rounded-[var(--radius-pill)] border-2 py-3.5 px-6 text-base font-bold transition ${
+          isNavy
+            ? "border-white/40 text-white hover:bg-white hover:text-[var(--color-navy)]"
+            : "border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white"
+        }`}
+      >
+        <Phone size={18} /> Talk to a broker
+      </a>
+
       <p className={`mt-3 flex items-center justify-center gap-1.5 text-xs ${subtleText}`}>
         <ShieldCheck size={14} /> Won&apos;t affect your credit score
-      </p>
-
-      <p className="mt-3 text-center text-[12.5px] text-[var(--color-navy-400)]">
-        Not sure how much you need?{" "}
-        <a
-          href="tel:1300604183"
-          className="font-semibold text-[var(--color-navy)] underline decoration-[var(--color-coral)] decoration-2 underline-offset-[3px] hover:decoration-[3px] transition"
-        >
-          Talk to a broker →
-        </a>
       </p>
 
       <GoogleProofRow />

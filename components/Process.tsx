@@ -1,33 +1,21 @@
 const STEPS = [
   {
     n: "01",
-    title: "Apply",
+    title: "Apply & get matched",
     body:
-      "Tell us how much you're looking to borrow, plus a few details that help us find the right lender.",
+      "Tell us how much you're looking to borrow, plus a few quick details. We instantly compare 40+ lenders to find the best of the best for your circumstances.",
   },
   {
     n: "02",
-    title: "Get matched",
+    title: "Get approved",
     body:
-      "We compare 40+ lenders and work with major dealership groups across Australia to find the best of the best.",
+      "We prepare your documents, handle the paperwork and walk you through every step of the approval.",
   },
   {
     n: "03",
-    title: "Finalise",
+    title: "Settle & drive away",
     body:
-      "We prepare your documents and walk you through every step of the caravan loan process.",
-  },
-  {
-    n: "04",
-    title: "Settle",
-    body:
-      "Dealer or private sale — we handle the paperwork, lender and seller comms, keeping it smooth.",
-  },
-  {
-    n: "05",
-    title: "Hit the open road",
-    body:
-      "Approved. Settled. Done. Pick up your caravan and focus on where you'll head first.",
+      "Dealer or private sale — we handle settlement and the seller comms. Pick up your caravan and focus on where you'll head first.",
   },
 ];
 
@@ -42,7 +30,7 @@ export function Process() {
             <span className="coral-word">dream caravan.</span>
           </h2>
           <p className="mt-4 text-base md:text-lg text-[var(--color-navy-400)] max-w-md">
-            Five steps from first form to picking up the keys — most of them, we handle.
+            Three steps from first form to picking up the keys — most of it, we handle.
           </p>
         </div>
 
